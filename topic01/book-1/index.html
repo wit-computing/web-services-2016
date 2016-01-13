@@ -47,72 +47,68 @@ figcaption
   <body>
 
   <div class="ui container">
-  <header class="ui middle aligned center aligned stackable grid segment">
-    <a class="ui blue left corner label">
-      <i class="film big  icon"></i>
-    </a>
-    <div class="eight wide center aligned column">
-      <h2 class="headder">    Web Services Development </h2>
-    </div>
-    <div class="one wide column sitemap">
-      <div class="popup" data-content="Top Level Topic View">
-        <a href="index.html"> <i class="big sitemap icon"></i>  topics </a>
-      </div>
-    </div>
-    <div class="one wide column">
-      <div class="popup" data-content="All Presentations">
-        <a href="talkwall.html"> <i class="big film icon"></i>  slides </a>
-      </div>
-    </div>
-    <div class="one wide column">
-      <div class="popup" data-content="All Labs">
-        <a href="labwall.html"> <i class="big lab icon"></i> labs </a>
-      </div>
-    </div>
-    <div class="five wide column">
-      <img class="ui centered medium image" src="http://www.wit.ie/assets/images/wit_crest.png">
-    </div>
-  </header>
+<style>
 
+
+code
+{
+  font-family: "Monaco";
+  font-size: 110%;
+}
+
+img
+{
+  padding:1px;
+  border:1px solid black;
+}
+
+h1
+{
+  font-style:italic;
+  font-size:130%;
+  border-bottom: thin solid black;
+}
+h2
+{
+  font-size:110%;
+  border-bottom: thin solid black;
+}
+h3
+{
+  font-size:100%;
+  border-bottom: thin solid black;
+}
+
+</style>
+
+<div class="ui fixed top pointing inverted menu labmenu">
+  <header class="header item">
+    <a href="../index.html">
+      <i class="sitemap icon"></i>
+      Introduction to Web Services
+    </a>
+  </header>
+  <div class="right tab-menu menu">
+    <a class="active item" data-tab="Lab-01">
+        Lab-01
+    </a>
+    </div>
+</div>
+
+<br><br>
+
+  <div  class="ui tab segment lab" data-tab="Lab-01">
+    <h1>Javascript Introduction</h1>
+<p>The main aim of this lab is to prepare you for working with Node.js. The lab will focus on the behaviour constructs of JS, specifically, <strong>functions, methods and constructors</strong>.</p>
+  </div>
 <script>
-  $('.popup')
-  .popup()
+$('.ui.menu .item')
+  .tab({
+    history: true,
+    historyType: 'hash'
+  })
 ;
 </script>
-
-
-<div class="ui four doubling stackable cards">
-      <a class="ui card" href="topic01/./talk-1/web-services-intro.pdf">
-    <div class="content">
-      <div class="right floated meta"> <i class="film large icon"></i></div>
-      <div class="header"> Web Services </div>
-    </div>
-    <div class="ui bordered rounded image">
-      <img src="topic01/talk-1/web-services-intro.png">
-    </div>
-    <div class="content">
-      <div class="description">
-         <p>This topic provides an introduction to Web Services. You will cover web services origins, the definition of a web service, web service examples, and the microservice concept.</p>
-      </div>
-    </div>
-  </a>
-
-      <a class="ui card" href="topic01/./talk-2/javascript-intro.pdf">
-    <div class="content">
-      <div class="right floated meta"> <i class="film large icon"></i></div>
-      <div class="header"> JavaScript </div>
-    </div>
-    <div class="ui bordered rounded image">
-      <img src="topic01/talk-2/javascript-intro.png">
-    </div>
-    <div class="content">
-      <div class="description">
-         <p>This talk provides an introduction to Javascipt. You will cover JavaScript origins and primative types, objects,  programming constructs and functions used in Javascript.</p>
-      </div>
-    </div>
-  </a>
-
-</div>
    </div>
 
 
