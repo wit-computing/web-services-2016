@@ -92,6 +92,12 @@ h3
     <a class="active item" data-tab="Lab-01">
         Lab-01
     </a>
+      <a class="item" data-tab="01">
+        01
+      </a>
+      <a class="item" data-tab="02">
+        02
+      </a>
     </div>
 </div>
 
@@ -99,7 +105,149 @@ h3
 
   <div  class="ui tab segment lab" data-tab="Lab-01">
     <h1>Javascript Introduction</h1>
-<p>The main aim of this lab is to prepare you for working with Node.js. The lab will focus on the behaviour constructs of JS, specifically, <strong>functions, methods and constructors</strong>.</p>
+<p>By completing a set of small exercises, this lab helps you develop an understanding of the basic syntax and fundemental concepts of th JaavaScript language. You should use the sample code provided with the lecture slides as an aid to this task.</p>
+  </div>
+  <div  class="ui tab segment lab" data-tab="01">
+    <h1>Node.js</h1>
+<p>If you do not have Node.js installed in you machine, please go to <a href="http://nodejs.org/">nodejs.org</a> and download/install node for your platform. To check if node is working, open a command line/terminal window on your machine and enter <code>node -v</code>. IT should respond as follows:</p>
+<pre><code>&gt; node -v
+v0.13.0-pre
+</code></pre>
+
+<p>The work for this lab has been tested with node version 0.13.0. </p>
+  </div>
+  <div  class="ui tab segment lab" data-tab="02">
+    <h2>Start-up.</h2>
+<p>Download the sample code supporting the lecture slides (available on Moodle or <a href="https://moodle.wit.ie/pluginfile.php/1515450/mod_resource/content/4/samplecode.zip">here</a> ) and unzip it. Open a terminal/shell/DOS window, use the <em>cd</em> command to relocate to the folder containing the unzipped files and run the first sample, as follows:</p>
+<pre><code>$ node 01_primitives.js
+</code></pre>
+<p>[Note: As a convention, we use the dollar symbol ($) to represent the terminal prompt - you do not type it as part of a command.]</p>
+<p>The screen-shot shows the result expected.</p>
+<p><img alt="" src="./lab1_files/terminal1.png"></p>
+<p>Examine the file <code>02_objects.js</code> in the folder and run it:</p>
+<pre><code>$ node 02_objects.js
+</code></pre>
+<p>Ensure you understand how it generated its output.</p>
+<p>Now create a new folder called <code>lab01</code> and inside it create a new file named <code>fundamentals.js</code>. Paste this code into the file:</p>
+<pre><code>    aCar = {
+        owner : "Joe Bloggs",
+        type : 'Toyota Corolla 1.8',
+        registration : '10WD1058'
+    }
+
+    console.log(aCar.owner)
+</code></pre>
+<p>Open a second shell/DOS window, go to the new folder (using the cd command) and run it, as follows:</p>
+<pre><code>$ node fundamentals.js
+</code></pre>
+<p><img alt="" src="./lab1_files/terminal2.png"></p>
+<h2>Nested Objects.</h2>
+<p>[First examine the file <code>04_nested_objects.js</code> from the sample code, run it and ensure you understand how it generated its output.]</p>
+<p>Switch your attention back to the <code>fundamentals.js</code> file.</p>
+<p>A car’s type can be broken down into three parts: Make (Toyota), Model (Corolla), and CC (1.8). Change the value of the <em>type</em> property of <em>aCar</em> from a string to an object, where the inner object’s properties are <em>make</em>, <em>model</em> and <em>cc</em>. To prove your change worked, add this line to the bottom of the JS file:</p>
+<pre><code>console.log(aCar.owner + ' drives a ' + aCar.type.make)
+</code></pre>
+<p>and run it as before:</p>
+<pre><code>$ node fundamentals.js
+</code></pre>
+<p>It should display: <strong>Joe Bloggs drives a Toyota</strong>.</p>
+<p>[See <a href="https://moodle.wit.ie/pluginfile.php/1515450/mod_resource/content/4/solutions.html">Solution 01</a> for the completed code.]</p>
+<p>A car’s registration is also composed of three distinct elements; year, county code, and number. Use an inner object for the <em>registration</em> property to reflect this structure and aksi add a ‘console.log’ statement that displays the following: <strong>Reg. = 10-WD-1058</strong>.</p>
+<p>[See <a href="https://moodle.wit.ie/pluginfile.php/1515450/mod_resource/content/4/solutions.html">Solution 02</a> for the completed code.]</p>
+<h2>Dynamic properties.</h2>
+<p>[First examine the file <code>03_dynamic_objects.js</code> from the sample code, run it and ensure you understand how it generated its output.]</p>
+<p>Objects are dynamic in that new properties can be added at any stage after initialization. The syntax is :</p>
+<blockquote>
+<blockquote>
+<p>object.new_property = value e.g. aCar.property = value</p>
+</blockquote>
+</blockquote>
+<p>Using this syntax, add two new properties to <em>aCar</em>:</p>
+<ol>
+<li>Mileage - set this to 80000.</li>
+<li>Color - two colors apply, exterior (red), and interior, where the latter has two attributes, namely, texture (say, leather) and shade (say, cream).</li>
+</ol>
+<p>Then add a ‘console.log’ statement that displays these details, as follows : <strong>It is a red car, 80000 mileage, and leather interior.</strong>.</p>
+<p>[See <a href="https://moodle.wit.ie/pluginfile.php/1515450/mod_resource/content/4/solutions.html">Solution 03</a> for the completed code.]</p>
+<h2>Arrays.</h2>
+<p>[First examine the file <code>05_arrays.js</code> from the sample code, run it and ensure you understand how it generated its output.]</p>
+<p>Add a previous owners property to <em>aCar</em>, as follows:</p>
+<pre><code>    aCar = {
+        owner : 'Joe Bloggs',
+        previous_owners : ['Pat Smith - 1 Main Street', 
+                            'Sheila Dwyer - 2 High Street'],
+        . . . . . . 
+        registration : {year : 10, county : 'WD', number : 1058}
+    }
+</code></pre>
+<p>This new property is an array of strings. To test it, add this statement to the bottom of the file:</p>
+<pre><code>    console.log('First owner : ' + aCar.previous_owners[0] )
+</code></pre>
+<p>and run the code as before:</p>
+<pre><code>    $ node fundamentals.js
+</code></pre>
+<p>The last line displayed by the code will be: <strong>First owner : Pat Smith - 1 Main Street</strong>.</p>
+<p>A better design for the previous owners property would be array of objects, where the objects’ form is:</p>
+<pre><code>      { name : ' .......', address : '.......'}
+</code></pre>
+<p>You are required to change the <em>previous_owners</em> array to reflect this redesign and rewrite the ‘console.log’ statement so that it still displays the same information.</p>
+<p>[See <a href="https://moodle.wit.ie/pluginfile.php/1515450/mod_resource/content/4/solutions.html">Solution 04</a> for the completed code.]</p>
+<p>For completeness, add a property to <em>aCar</em> for the current owner’s address, as follows:</p>
+<pre><code>    var aCar = {
+        owner : 'Joe Bloggs',
+        address : '3 Walkers Lane',
+        . . . . . . .
+        registration : {year : 10, county : 'WD', number : 1058}
+    }
+</code></pre>
+<h2>Looping/Iteration constructs.</h2>
+<p>Suppose the car has a list of extra features. We can represent this as a simple array of strings, as follows:</p>
+<pre><code>    var aCar = {
+        owner : 'Joe Bloggs',
+        . . . . . . . 
+        features : ['Parking assist', 'Alarm', 'Tow-bar'],
+        registration : {year : 10, county : 'WD', number : 1058}
+    }
+</code></pre>
+<p>At the end of the file, add a for-loop to display this list, as follows:</p>
+<pre><code>    for (var i = 0 ; i &lt; aCar.features.length ; i += 1) {
+        console.log(aCar.features[i])
+    }
+</code></pre>
+<p>Run the code to prove it works:</p>
+<pre><code>    $ node fundamentals.js
+</code></pre>
+<p>You are required to write another for-loop that displays the name (not their address as well) of each previous owner.</p>
+<p>[See <a href="https://moodle.wit.ie/pluginfile.php/1515450/mod_resource/content/4/solutions.html">Solution 05</a> for the completed code.]</p>
+<p>The for-loop for iterating over an object’s properties is slightly different. For example, to display the key-value pairs in the <em>type</em> property, add the following code to the end of the file:</p>
+<pre><code>    for (var p in aCar.type)  {
+        console.log(p.toUpperCase() + ' = ' + aCar.type[p] )
+    }
+</code></pre>
+<p>Run the code to prove it works. Note the expression <code>aCar.type[p]</code> in the above excerpt. It demonstrates the subscript notation for accessing an object’s properties, e.g. aCar[‘owner’], aCar.type[‘make’]. To-date we have used the dot notation (aCar.owner), however this will not work in the above excerpt as the variable <em>p</em> is a string.</p>
+<hr>
+<h1>The Browser as a Javascript Development tool.</h1>
+<p>So far we have used the <strong>node.js</strong> platform to execute JS code, however, the Web Browser was the original execution environment. In recent years browser vendors have been add excellent <em>Developer Tools</em> to assist with debugging web applications. In this lab we will introduce the developer tools in the <a href="https://developer.chrome.com/devtools">Google Chrome</a> browser - other browsers have similar tools. [You should install this browser to complete the lab.]</p>
+<p>To demonstrate the tools, we will paste the JS code developed so far into a blank web page. Download <a href="https://moodle.wit.ie/pluginfile.php/1515450/mod_resource/content/4/demo.zip">this file</a>, unzip it and study the content. Open the <code>demo.html</code> web page in the Chrome browser. Although the page is blank, the JS code inside the ‘script’ tag has been executed. To prove this, open the Developer tools by clicking the Chrome menu icon on the top right and selecting the tools, as illustrated below:</p>
+<p><img alt="" src="./lab1_files/devtool.png"></p>
+<p>The tools window appears at the bottom of the browser and the <strong>Console</strong> tab is selected as the default (if not then select it manually). All the log statements from our JS code appear in the console view, as illustrated below:</p>
+<p><img alt="" src="./lab1_files/console.png"></p>
+<p>The console allows us interact with the JS code by typing statements at the prompt. [In a later lab we will use the console to interact with the web page currently being displayed]. At the prompt, type the statement:</p>
+<pre><code>      aCar.owner
+</code></pre>
+<p>and notice the response (see illustration)</p>
+<p><img alt="" src="./lab1_files/prompt.png"></p>
+<p>We can change any object property, for example, type these two commands at the prompt:</p>
+<pre><code>    aCar.color.exterior = 'blue'
+    aCar.color.exterior
+</code></pre>
+<p>The Console attempts to evaluate any JavaScript expression you enter at the prompt. It also provides <strong>auto-completion and tab-completion</strong>. For example, as you type expressions, property names are automatically suggested (see illustration). If there are multiple properties with the same prefix, pressing the Tab key cycles through them. Pressing the right arrow key accepts the current suggestion.</p>
+<p><img alt="" src="./lab1_files/completion.png"></p>
+<p>You will notice that an object has a number of properties not explicitly defined - see illustration. These are defined for all objects by default - some are useful.</p>
+<p><img alt="" src="./lab1_files/properties.png"></p>
+<p>When a statement returns an object, rather than a primitive, you can expand the object to see its property detail.</p>
+<p><img alt="" src="./lab1_files/expand.png"></p>
+<p>The tools will be very useful for debugging application code later in the semester.</p>
   </div>
 <script>
 $('.ui.menu .item')
