@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0081)https://moodle.wit.ie/pluginfile.php/1549578/mod_resource/content/3/solution.html -->
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <meta name="generator" content="pandoc">
+  <title></title>
+</head>
+<body>
+<h2 id="solution-01">Solution 01</h2>
+<pre><code>    var addPreviousOwner = function(car,p_name,p_address) {
+           var o = { name : p_name, address : p_address }
+           if (car.previous_owners.length == 3) {
+              car.previous_owners.shift()
+           }
+           car.previous_owners.push(o)
+     }
+
+     addPreviousOwner(aCar,'Jim Nugent','3 Lower Road')
+     console.log(aCar.previous_owners[aCar.previous_owners.length - 1].name)
+     addPreviousOwner(aCar,'Rachel Fleming','4 Upper Road')
+     console.log(aCar.previous_owners[2].name)
+     console.log(aCar.previous_owners[0].name)</code></pre>
+<hr>
+<h2 id="solution-02">Solution 02</h2>
+<pre><code>    var aCar = {
+        owner : 'Joe Bloggs',
+        address : '3 Walkers Lane',
+        newOwner : function(p_name,p_address) {
+               this.addPreviousOwner(this.owner,this.address)
+               this.owner = p_name
+               this.address = p_address
+            },
+        . . . . . . . .. 
+    }</code></pre>
+<hr>
+<h2 id="solution-03">Solution 03</h2>
+<pre><code>    var aCar = {
+        . . . . . . 
+        wasOwnedBy : function(name_in) {
+            var result = false
+            this.previous_owners.forEach(function(owner) {
+            var name = owner.name.toUpperCase()
+            if (name_in.toUpperCase() == name) {
+               result = true
+               }
+            })
+            return result
+            },
+        . . . . . .
+    }</code></pre>
+<hr>
+<h2 id="solution-04">Solution 04</h2>
+<pre><code>    function Car(name_in,address_in,make_in,model_in,cc_in) {
+        . . . . . . 
+        this.addPreviousOwner = function(p_name,p_address) { . . . . . . . }
+        this.newOwner = function(p_name,p_address) {
+               this.addPreviousOwner(this.owner,this.address)
+               this.owner = p_name
+               this.address = p_address
+            }
+        . . . . . 
+    }</code></pre>
+
+
+</body></html>

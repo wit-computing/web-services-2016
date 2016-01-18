@@ -98,9 +98,6 @@ h3
       <a class="item" data-tab="02">
         02
       </a>
-      <a class="item" data-tab="03">
-        03
-      </a>
     </div>
 </div>
 
@@ -123,7 +120,7 @@ v0.13.0-pre
     <h1>Javascript (JS) Functions.</h1>
 <p>The related sample code accompanying the Javascript lecture slides (available <a href="https://moodle.wit.ie/pluginfile.php/1555674/mod_resource/content/3/lab3/source/functions.js">here</a>) should be used as a guide to implementing the exercises for this lab.</p>
 <h2>Start.</h2>
-<p>Use <a href="https://moodle.wit.ie/pluginfile.php/1555674/mod_resource/content/3/lab3/source/lab_functions.js">this JS code</a> as the starting point for this lab exercise. Open the downloaded file and examine its initial content.</p>
+<p>Use <a href="./javascript-lab_files/lab_functions.js">this JS code</a> as the starting point for this lab exercise. Open the downloaded file and examine its initial content.</p>
 <h2>Functions.</h2>
 <p>[In the sample code provided with the lecture slides (functions.js), review the section demonstrating <em>function declarations, variable scopes and function expressions</em>. ]</p>
 <p>Suppose we want a function that adds an entry to the <em>previous_owners</em> property of <em>aCar</em>. Add the following function expression statement to the end of <code>lab_functions.js</code>:</p>
@@ -145,7 +142,7 @@ v0.13.0-pre
      console.log(aCar.previous_owners[0].name)
 </code></pre>
 <p>The two log statements should display the names Rachel Fleming and Sheila Dwyer.</p>
-<p>[See <a href="https://moodle.wit.ie/pluginfile.php/1549578/mod_resource/content/3/solution.html">Solution 01</a> for the completed code.]</p>
+<p>[See <a href="./javascript-lab_files/solution.html">Solution 01</a> for the completed code.]</p>
 <h2>Variable scopes.</h2>
 <p>In the <em>addPreviousOwner</em> function above it was not necessary to have <em>aCar</em> as an argument since this variable has <strong>global scope</strong>. Therefore the function expression could be reduced to:</p>
 <pre><code>    var addPreviousOwner = function(p_name,p_address) { ... body ... }
@@ -183,7 +180,7 @@ v0.13.0-pre
     console.log(aCar.owner)
 </code></pre>
 <p>The log statements should display the names Joe Bloggs and Donal Dunne. [Hint: A method of an object can call another method (of the same object). Simply prefix the called method with <em>this</em>, e.g. this.otherMethod(. . . )]</p>
-<p>[See <a href="https://moodle.wit.ie/pluginfile.php/1549578/mod_resource/content/3/solution.html">Solution 02</a> for the completed code.]</p>
+<p>[See <a href="./javascript-lab_files/solution.html">Solution 02</a> for the completed code.]</p>
 <h2>Methods/Function return.</h2>
 <p>[First examine the relevant section of the sample code from the lecture and then continue.]</p>
 <p>Add the following method to the car object:</p>
@@ -204,9 +201,7 @@ v0.13.0-pre
 <pre><code>     $ node lab_functions.js
 </code></pre>
 <p>[The Date feature used in the above method is interesting. You can experiment with it in the Google Chrome Developer tools console, as illustrated below:</p>
-<div class="figure">![](./javascript-lab_files/date.png)</div>
-
-<p>]</p>
+<p><img alt="" src="./javascript-lab_files/date.png"></p>
 <p>For some method a boolean (true/false) is the appropriate return value. For example, a method that determines whether a car has a certain feature (yes/no) would look as follows:</p>
 <pre><code>    var aCar = {
         . . . . . 
@@ -240,7 +235,7 @@ v0.13.0-pre
 <pre><code>    Jim Nugent ? true
     Paul Minihan ? false
 </code></pre>
-<p>[See <a href="https://moodle.wit.ie/pluginfile.php/1549578/mod_resource/content/3/solution.html">Solution 03</a> for the completed code.]</p>
+<p>[See <a href="./javascript-lab_files/solution.html">Solution 03</a> for the completed code.]</p>
 <h2>Constructors.</h2>
 <p>Instead of using the literal syntax for creating the car object above, a constructor could be utilized - instantiating other car objects would be much easier as a consequence. For convenience, we will use a separate file, called <code>constructor.js</code> for the remainder of the lab. Create the file and paste in the following code:</p>
 <pre><code>    function Car(name_in,address_in,make_in,model_in,cc_in) {
@@ -282,215 +277,10 @@ v0.13.0-pre
     console.log(car1.owner)
 </code></pre>
 <p>The log statements should display Joe Bloggs and Donal Dunne.</p>
-<p>[See <a href="https://moodle.wit.ie/pluginfile.php/1549578/mod_resource/content/3/solution.html">Solution 04</a> for the completed code.]</p>
-<p>The car registration details are not yet supported by our constructor. While this information is stored internally in a nested object, we don’t need to expose this to the constructor user. Using a simple string as the constructor parameter seems more natural, e.g. Car (….,‘10-WD-1058’). To satisfy this requirement our constructor must parse the registration string and place the elements in the nested object. JS has a special string method called <em>split</em> for parsing strings. You can experiment with it in Chrome’s Developer Tools console, as illustrated below:</p>
-<div class="figure">![](./javascript-lab_files/split.png)</div>
-
-<p>The <em>split</em> methods segments a string based on a given character, ’-’ in the above example. The methods returns an array containing the segments.</p>
-<p>Now update the car constructor to make use of this feature, as follows:</p>
-<pre><code>    function Car(name_in,address_in,make_in,model_in,cc_in,reg_in) {
-        . . . . . 
-        this.type = { make : make_in, model : model_in, cc : cc_in }
-        var reg_parts = reg_in.split('-')
-        var year = parseInt(reg_parts[0])
-        this.registration = {year : year , 
-                             county : reg_parts[1], 
-                             number : reg_parts[2] }
-        this.newOwner = function(p_name,p_address) { . . . }
-        . . . . . . 
-    }
-</code></pre>
-<p>[The parseInt() function converts a numeric string to an integer, e.g. ‘123’ to 123. Experiment with it in Chrome’s Developer Tools console.]</p>
-<p>You must now change the existing line of code that creates a car object to the following:</p>
-<pre><code>    var car1 = new Car('Joe Bloggs','3 Walkers Lane',
-                       'Toyota','Corolla',1.8,'10-WD-1058')
-</code></pre>
-<p>To prove it all works, add the <em>howOld</em> method, as follows:</p>
-<pre><code>    function Car(name_in,address_in,make_in,model_in,cc_in,reg_in) {
-        . . . . . 
-        this.howOld = function() {
-               var today = new Date()
-               var this_year = today.getFullYear()
-               return this_year - (this.registration.year + 2000)
-            }
-        this.newOwner = function(p_name,p_address) { . . . }
-        . . . . . 
-    }
-</code></pre>
-<p>and add this line to the end of the file:</p>
-<pre><code>    console.log('Car age: ' + car1.howOld())
-</code></pre>
-<p>The log statement should display ‘Car age: 5’.</p>
-<hr>
-  </div>
-  <div  class="ui tab segment lab" data-tab="03">
-    <h1>Javascript (JS) Functions.</h1>
-<p>The related sample code accompanying the Javascript lecture slides (available <a href="https://moodle.wit.ie/pluginfile.php/1555674/mod_resource/content/3/lab3/source/functions.js">here</a>) should be used as a guide to implementing the exercises for this lab.</p>
-<h2>Start.</h2>
-<p>Use <a href="https://moodle.wit.ie/pluginfile.php/1555674/mod_resource/content/3/lab3/source/lab_functions.js">this JS code</a> as the starting point for this lab exercise. Open the downloaded file and examine its initial content.</p>
-<h2>Functions.</h2>
-<p>[In the sample code provided with the lecture slides (functions.js), review the section demonstrating <em>function declarations, variable scopes and function expressions</em>. ]</p>
-<p>Suppose we want a function that adds an entry to the <em>previous_owners</em> property of <em>aCar</em>. Add the following function expression statement to the end of <code>lab_functions.js</code>:</p>
-<pre><code>    var addPreviousOwner = function(car,p_name,p_address) {
-           var o = { name : p_name, address : p_address }
-           car.previous_owners.push(o)
-     }
-</code></pre>
-<p>Recall, the <em>push</em> function adds the new entry to the end of the array. To prove this code works, add the following statements after the function expression:</p>
-<pre><code>    addPreviousOwner(aCar,'Jim Nugent','3 Lower Road')
-    console.log(aCar.previous_owners[aCar.previous_owners.length - 1].name)
-</code></pre>
-<p>The ‘console.log’ statement accesses the last entry in the <em>previous_owners</em> array - at index ‘length - 1’. Now run the code:</p>
-<pre><code>     $ node lab_functions.js
-</code></pre>
-<p>Let’s assume we decide to keep a record of only the three most recent previous owners of a car. When we try to add a fourth person then the first owner should be removed from the record, leaving the second owner as the first entry in the array. A similar procedure should be applied when we add a fifth and subsequent previous owner - the array never has more than three entries. You are required to change the implementation of the <em>addPreviousOwner</em> function to meet this requirement. To test your solution, add the following to the end of the <code>`lab_functions.js</code> file:</p>
-<pre><code>     addPreviousOwner(aCar,'Rachel Fleming','4 Upper Road')
-     console.log(aCar.previous_owners[2].name)
-     console.log(aCar.previous_owners[0].name)
-</code></pre>
-<p>The two log statements should display the names Rachel Fleming and Sheila Dwyer.</p>
-<p>[See <a href="https://moodle.wit.ie/pluginfile.php/1549578/mod_resource/content/3/solution.html">Solution 01</a> for the completed code.]</p>
-<h2>Variable scopes.</h2>
-<p>In the <em>addPreviousOwner</em> function above it was not necessary to have <em>aCar</em> as an argument since this variable has <strong>global scope</strong>. Therefore the function expression could be reduced to:</p>
-<pre><code>    var addPreviousOwner = function(p_name,p_address) { ... body ... }
-</code></pre>
-<p>and in the body of the function all references to <em>car</em> should be changed to <em>aCar</em>.</p>
-<p>[However, in general it is considered good practice to have functions independent of global scope. This enhances the function’s re-usability.]</p>
-<p>The variable <em>o</em> declared inside the function is not accessible in global scope. To prove this, add the following log statement to the end of the file:</p>
-<pre><code>   console.log(o.name)
-</code></pre>
-<p>and run the code. An error is thrown to indicate o is not defined. Remove the log statement again to get rid of the error.</p>
-<h2>Methods.</h2>
-<p>[In the sample code provided with the lecture slides, review the section demonstrating <em>methods</em>.]</p>
-<p>The <em>addPreviousOwner</em> function above should really be a method of <em>aCar</em>. To achieve this, make the following addition to <em>aCar</em>:</p>
-<pre><code>    var aCar = {
-        . . . . . . . 
-        addPreviousOwner : function(p_name,p_address) {
-               var o = { name : p_name, address : p_address }
-               if (this.previous_owners.length == 3) {
-                  this.previous_owners.shift()
-               }
-               this.previous_owners.push(o)
-            },
-        previous_owners : [ { name : 'Pat Smith', address : '1 Main Street'}, 
-                            { name : 'Sheila Dwyer', address : '2 High Street'}],
-        . . . . . . . .
-    }
-</code></pre>
-<p>Note, the keyword ‘this’ is used inside the method to reference the containing object (aCar). We should now remove the old <em>addPreviousOwner</em> function expression and replace all calls to that function with method calls instead. The method calls will be as follows:</p>
-<pre><code>     aCar.addPreviousOwner('Jim Nugent','3 Lower Road')
-     aCar.addPreviousOwner('Rachel Fleming','4 Upper Road')
-</code></pre>
-<p>You are required to add another method to <em>aCar</em>, called <em>newOwner</em>. This method changes the owner details and adds the current owner to the list of previous owners. Test your method implementation by adding the following statements to the end of the file:</p>
-<pre><code>    aCar.newOwner('Donal Dunne','5 Kings Way')
-    console.log(aCar.previous_owners[2].name)
-    console.log(aCar.owner)
-</code></pre>
-<p>The log statements should display the names Joe Bloggs and Donal Dunne. [Hint: A method of an object can call another method (of the same object). Simply prefix the called method with <em>this</em>, e.g. this.otherMethod(. . . )]</p>
-<p>[See <a href="https://moodle.wit.ie/pluginfile.php/1549578/mod_resource/content/3/solution.html">Solution 02</a> for the completed code.]</p>
-<h2>Methods/Function return.</h2>
-<p>[First examine the relevant section of the sample code from the lecture and then continue.]</p>
-<p>Add the following method to the car object:</p>
-<pre><code>    var aCar = {
-        . . . . . . . .
-        howOld : function() {
-               var today = new Date()
-               var this_year = today.getFullYear()
-               return this_year - (this.registration.year + 2000)
-            },
-        . . . . . . . . . 
-    }
-</code></pre>
-<p>It computes how old the car is, in years. To test it, add the following log statement to the end of the file:</p>
-<pre><code>    console.log(aCar.howOld())
-</code></pre>
-<p>and run it:</p>
-<pre><code>     $ node lab_functions.js
-</code></pre>
-<p>[The Date feature used in the above method is interesting. You can experiment with it in the Google Chrome Developer tools console, as illustrated below:</p>
-<div class="figure">![](./javascript-lab_files/date.png)</div>
-
-<p>]</p>
-<p>For some method a boolean (true/false) is the appropriate return value. For example, a method that determines whether a car has a certain feature (yes/no) would look as follows:</p>
-<pre><code>    var aCar = {
-        . . . . . 
-        addPreviousOwner : function(p_name,p_address) { 
-            . . . . . 
-            },
-        hasFeature : function(feature_in) {
-            var result = false
-            this.features.forEach(function(feature) {
-            if (feature_in.toUpperCase() == feature.toUpperCase() ) {
-               result = true
-               }
-            })
-            return result
-            },
-        . . . . . . 
-    }
-</code></pre>
-<p>[For maximum user convenience, the method is made case-insensitive by temporarily converting everything to upper-case.]</p>
-<p>To test this method, add the following to the bottom of the file:</p>
-<pre><code>    console.log('Alarm :' + aCar.hasFeature('alarm') )
-</code></pre>
-<p>and run the code.</p>
-<p>You are required to implement a method that determines if a particular person (name) was a previous owner of the car. To test your implementation add the following to the end of the file:</p>
-<pre><code>     var name = 'Jim Nugent'
-     console.log(name + ' ? ' + aCar.wasOwnedBy(name))
-     name = 'Paul Minihan'
-     console.log(name + ' ? ' + aCar.wasOwnedBy(name))
-</code></pre>
-<p>The result should be:</p>
-<pre><code>    Jim Nugent ? true
-    Paul Minihan ? false
-</code></pre>
-<p>[See <a href="https://moodle.wit.ie/pluginfile.php/1549578/mod_resource/content/3/solution.html">Solution 03</a> for the completed code.]</p>
-<h2>Constructors.</h2>
-<p>Instead of using the literal syntax for creating the car object above, a constructor could be utilized - instantiating other car objects would be much easier as a consequence. For convenience, we will use a separate file, called <code>constructor.js</code> for the remainder of the lab. Create the file and paste in the following code:</p>
-<pre><code>    function Car(name_in,address_in,make_in,model_in,cc_in) {
-        this.owner = name_in
-        this.address = address_in
-        this.previous_owners = [ ]
-        this.type = { make : make_in, model : model_in, cc : cc_in }
-        this.addPreviousOwner = function(p_name,p_address) {
-               var o = { name : p_name, address : p_address }
-               if (this.previous_owners.length == 3) {
-                  this.previous_owners.shift()
-               }
-               this.previous_owners.push(o)
-            }
-        this.wasOwnedBy = function(name_in) {
-            var result = false
-            this.previous_owners.forEach(function(owner) {
-            var name = owner.name.toUpperCase()
-            if (name_in.toUpperCase() == name) {
-               result = true
-               }
-            })
-            return result
-            }
-    }
-
-    var car1 = new Car('Joe Bloggs','3 Walkers Lane','Toyota','Corolla',1.8)
-    car1.addPreviousOwner( 'Pat Smith', '1 Main Street')
-    car1.addPreviousOwner( 'Pat Smith', '1 Main Street')
-    car1.addPreviousOwner( 'Sheila Dwyer', '2 High Street')
-    console.log('Path Smith ? ' + car1.wasOwnedBy('Pat Smith'))
-</code></pre>
-<p>[Note, this code is not yet complete.] Take some time to study it and then run it:</p>
-<pre><code>    $ node constructor.js
-</code></pre>
-<p>In the original <em>aCar</em> object we had a <em>newOwner</em> method. You are required to add this method to the <em>Car</em> constructor and then test your solution by adding the following to the end of the <code>constructor.js</code> file:</p>
-<pre><code>    car1.newOwner('Donal Dunne','5 Kings Way')
-    console.log(car1.previous_owners[2].name)
-    console.log(car1.owner)
-</code></pre>
-<p>The log statements should display Joe Bloggs and Donal Dunne.</p>
-<p>[See <a href="https://moodle.wit.ie/pluginfile.php/1549578/mod_resource/content/3/solution.html">Solution 04</a> for the completed code.]</p>
-<p>The car registration details are not yet supported by our constructor. While this information is stored internally in a nested object, we don’t need to expose this to the constructor user. Using a simple string as the constructor parameter seems more natural, e.g. Car (….,‘10-WD-1058’). To satisfy this requirement our constructor must parse the registration string and place the elements in the nested object. JS has a special string method called <em>split</em> for parsing strings. You can experiment with it in Chrome’s Developer Tools console, as illustrated below:</p>
-<div class="figure">![](./javascript-lab_files/split.png)</div>
-
-<p>The <em>split</em> methods segments a string based on a given character, ’-’ in the above example. The methods returns an array containing the segments.</p>
+<p>[See <a href="./javascript-lab_files/solution.html">Solution 04</a> for the completed code.]</p>
+<p>The car registration details are not yet supported by our constructor. While this information is stored internally in a nested object, we don’t need to expose this to the constructor user. Using a simple string as the constructor parameter seems more natural, e.g. Car (….,‘10-WD-1058’). To satisfy this requirement our constructor must parse the registration string and place the elements in the nested object. JS has a special string method called <em>split</em> for parsing strings. You can experiment with it in Chrome’s Developer Tools console, as illustrated below:
+<img alt="" src="./javascript-lab_files/split.png">
+The <em>split</em> methods segments a string based on a given character, ’-’ in the above example. The methods returns an array containing the segments.</p>
 <p>Now update the car constructor to make use of this feature, as follows:</p>
 <pre><code>    function Car(name_in,address_in,make_in,model_in,cc_in,reg_in) {
         . . . . . 
