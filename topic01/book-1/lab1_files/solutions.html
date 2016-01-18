@@ -1,0 +1,82 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0082)https://moodle.wit.ie/pluginfile.php/1515450/mod_resource/content/4/solutions.html -->
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <meta name="generator" content="pandoc">
+  <title></title>
+</head>
+<body>
+<h2 id="solution-01">Solution 01</h2>
+<pre><code>    var aCar = {
+        owner : 'Joe Bloggs',
+        type : {
+            make : 'Toyota',
+            model : 'Corolla',
+            cc : 1.8
+        },
+        registration : '10WD1058'
+    }
+    console.log(aCar.owner + ' drives a ' + aCar.type.make)</code></pre>
+<hr>
+<h2 id="solution-02.">Solution 02.</h2>
+<pre><code>    var aCar = {
+        owner : 'Joe Bloggs,
+        type : {
+            make : 'Toyota',
+            model : 'Corolla',
+            cc : 1.8
+        },
+        registration : {year : 10, county : 'WD', number : 1058}
+    }
+
+    console.log(aCar.owner + ' drives a ' + aCar.type.make)
+    console.log('Reg. = ' + aCar.registration.year + '-' +
+                            aCar.registration.county + '-' +
+                            aCar.registration.number )</code></pre>
+<hr>
+<h2 id="solution-03.">Solution 03.</h2>
+<pre><code>    var aCar = {
+        owner : 'Joe Bloggs',
+        type : {
+            make : 'Toyota',
+            model : 'Corolla',
+            cc : 1.8
+        },
+        registration : {year : 10, county : 'WD', number : 1058}
+    }
+
+    console.log(aCar.owner + ' drives a ' + aCar.type.make)
+    console.log('Reg. = ' + aCar.registration.year + '-' +
+                            aCar.registration.county + '-' +
+                            aCar.registration.number )
+
+    aCar.mileage = 80000
+    aCar.color = { exterior : 'red', 
+           interior : { texture : 'leather', shade : 'cream' }
+         }
+
+    console.log('It is a ' + aCar.color.exterior + 
+                 ' car, '  + aCar.mileage + ' mileage, and ' + 
+                 aCar.color.interior.texture + ' interior.')</code></pre>
+<hr>
+<h2 id="solution-04.">Solution 04.</h2>
+<pre><code>    var aCar = {
+        owner : 'Joe Bloggs',
+        previous_owners : [ { name : 'Pat Smith', address : '1 Main Street'}, 
+                            { name : 'Sheila Dwyer', address : '2 High Street'}],
+        . . . . . . . . .
+        registration : {year : 10, county : 'WD', number : 1058}
+    }
+    . . . . . . . . 
+    console.log('First owner : ' + aCar.previous_owners[0].name + 
+                 ' - ' + aCar.previous_owners[0].address )</code></pre>
+<hr>
+<h2 id="solution-05.">Solution 05.</h2>
+<pre><code>    for (var i = 0 ; i &lt; aCar.previous_owners.length ; i += 1) {
+        console.log(aCar.previous_owners[i].name)
+    }</code></pre>
+<hr>
+
+
+</body></html>

@@ -151,9 +151,9 @@ v0.13.0-pre
 <pre><code>$ node fundamentals.js
 </code></pre>
 <p>It should display: <strong>Joe Bloggs drives a Toyota</strong>.</p>
-<p>[See <a href="https://moodle.wit.ie/pluginfile.php/1515450/mod_resource/content/4/solutions.html">Solution 01</a> for the completed code.]</p>
+<p>[See <a href="./lab1_files/solutions.html">Solution 01</a> for the completed code.]</p>
 <p>A car’s registration is also composed of three distinct elements; year, county code, and number. Use an inner object for the <em>registration</em> property to reflect this structure and aksi add a ‘console.log’ statement that displays the following: <strong>Reg. = 10-WD-1058</strong>.</p>
-<p>[See <a href="https://moodle.wit.ie/pluginfile.php/1515450/mod_resource/content/4/solutions.html">Solution 02</a> for the completed code.]</p>
+<p>[See <a href="./lab1_files/solutions.html">Solution 02</a> for the completed code.]</p>
 <h2>Dynamic properties.</h2>
 <p>[First examine the file <code>03_dynamic_objects.js</code> from the sample code, run it and ensure you understand how it generated its output.]</p>
 <p>Objects are dynamic in that new properties can be added at any stage after initialization. The syntax is :</p>
@@ -168,7 +168,7 @@ v0.13.0-pre
 <li>Color - two colors apply, exterior (red), and interior, where the latter has two attributes, namely, texture (say, leather) and shade (say, cream).</li>
 </ol>
 <p>Then add a ‘console.log’ statement that displays these details, as follows : <strong>It is a red car, 80000 mileage, and leather interior.</strong>.</p>
-<p>[See <a href="https://moodle.wit.ie/pluginfile.php/1515450/mod_resource/content/4/solutions.html">Solution 03</a> for the completed code.]</p>
+<p>[See <a href="./lab1_files/solutions.html">Solution 03</a> for the completed code.]</p>
 <h2>Arrays.</h2>
 <p>[First examine the file <code>05_arrays.js</code> from the sample code, run it and ensure you understand how it generated its output.]</p>
 <p>Add a previous owners property to <em>aCar</em>, as follows:</p>
@@ -191,7 +191,7 @@ v0.13.0-pre
 <pre><code>      { name : ' .......', address : '.......'}
 </code></pre>
 <p>You are required to change the <em>previous_owners</em> array to reflect this redesign and rewrite the ‘console.log’ statement so that it still displays the same information.</p>
-<p>[See <a href="https://moodle.wit.ie/pluginfile.php/1515450/mod_resource/content/4/solutions.html">Solution 04</a> for the completed code.]</p>
+<p>[See <a href="./lab1_files/solutions.html">Solution 04</a> for the completed code.]</p>
 <p>For completeness, add a property to <em>aCar</em> for the current owner’s address, as follows:</p>
 <pre><code>    var aCar = {
         owner : 'Joe Bloggs',
@@ -218,7 +218,7 @@ v0.13.0-pre
 <pre><code>    $ node fundamentals.js
 </code></pre>
 <p>You are required to write another for-loop that displays the name (not their address as well) of each previous owner.</p>
-<p>[See <a href="https://moodle.wit.ie/pluginfile.php/1515450/mod_resource/content/4/solutions.html">Solution 05</a> for the completed code.]</p>
+<p>[See <a href="./lab1_files/solutions.html">Solution 05</a> for the completed code.]</p>
 <p>The for-loop for iterating over an object’s properties is slightly different. For example, to display the key-value pairs in the <em>type</em> property, add the following code to the end of the file:</p>
 <pre><code>    for (var p in aCar.type)  {
         console.log(p.toUpperCase() + ' = ' + aCar.type[p] )
@@ -228,7 +228,7 @@ v0.13.0-pre
 <hr>
 <h1>The Browser as a Javascript Development tool.</h1>
 <p>So far we have used the <strong>node.js</strong> platform to execute JS code, however, the Web Browser was the original execution environment. In recent years browser vendors have been add excellent <em>Developer Tools</em> to assist with debugging web applications. In this lab we will introduce the developer tools in the <a href="https://developer.chrome.com/devtools">Google Chrome</a> browser - other browsers have similar tools. [You should install this browser to complete the lab.]</p>
-<p>To demonstrate the tools, we will paste the JS code developed so far into a blank web page. Download <a href="https://moodle.wit.ie/pluginfile.php/1515450/mod_resource/content/4/demo.zip">this file</a>, unzip it and study the content. Open the <code>demo.html</code> web page in the Chrome browser. Although the page is blank, the JS code inside the ‘script’ tag has been executed. To prove this, open the Developer tools by clicking the Chrome menu icon on the top right and selecting the tools, as illustrated below:</p>
+<p>To demonstrate the tools, we will paste the JS code developed so far into a blank web page. Download <a href="./lab1_files/demo.zip">this file</a>, unzip it and study the content. Open the <code>demo.html</code> web page in the Chrome browser. Although the page is blank, the JS code inside the ‘script’ tag has been executed. To prove this, open the Developer tools by clicking the Chrome menu icon on the top right and selecting the tools, as illustrated below:</p>
 <p><img alt="" src="./lab1_files/devtool.png"></p>
 <p>The tools window appears at the bottom of the browser and the <strong>Console</strong> tab is selected as the default (if not then select it manually). All the log statements from our JS code appear in the console view, as illustrated below:</p>
 <p><img alt="" src="./lab1_files/console.png"></p>
