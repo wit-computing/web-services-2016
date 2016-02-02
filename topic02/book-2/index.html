@@ -208,7 +208,7 @@ app.get('/greeting',function (request, response) {
 <li>In <strong>app.js</strong>, update the code to require the routing script and the above routes.  </li>
 </ul>
 <pre><code class="javascript">//create routing object
-var contact = require('./api/contact/index');
+var contact = require('./api/contacts/index');
 //Add routes for contacts api
 app.get('/api/contacts',contact.index);
 app.post('/api/contacts',contact.create);
