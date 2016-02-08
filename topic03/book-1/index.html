@@ -1,0 +1,439 @@
+ <!DOCTYPE html>
+ <html>
+   <head>
+
+     <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+
+     <meta charset="utf-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.4/semantic.min.css" type="text/css">
+     <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/styles/solarized_light.min.css" rel="stylesheet" />
+
+     <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.address/1.6/jquery.address.min.js"></script>
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.4/semantic.min.js"></script>
+     <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/highlight.min.js"></script>
+     <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/languages/java.min.js"></script>
+     <script>hljs.initHighlightingOnLoad();</script>
+
+      <style>
+
+
+body 
+{
+  font-family: "Open Sans", "Helvetica", "Helvetica Neue",  "Arial", sans-serif;
+}
+
+figcaption
+{
+  margin-bottom: 20px;
+}
+
+.vertical-align
+{
+  display: flex;
+  align-items: center;
+}
+
+.credits
+{
+  min-height:20px;
+}
+    </style>
+
+  </head>
+
+  <body>
+
+  <div class="ui container">
+<style>
+
+
+code
+{
+  font-family: "Monaco";
+  font-size: 110%;
+}
+
+img
+{
+  padding:1px;
+  border:1px solid black;
+}
+
+h1
+{
+  font-style:italic;
+  font-size:130%;
+  border-bottom: thin solid black;
+}
+h2
+{
+  font-size:110%;
+  border-bottom: thin solid black;
+}
+h3
+{
+  font-size:100%;
+  border-bottom: thin solid black;
+}
+
+</style>
+
+<div class="ui fixed top pointing inverted menu labmenu">
+  <header class="header item">
+    <a href="../index.html">
+      <i class="sitemap icon"></i>
+      Data Stores
+    </a>
+  </header>
+  <div class="right tab-menu menu">
+    <a class="active item" data-tab="Lab-mongo-01">
+        Lab-mongo-01
+    </a>
+      <a class="item" data-tab="01">
+        01
+      </a>
+      <a class="item" data-tab="02">
+        02
+      </a>
+    </div>
+</div>
+
+<br><br>
+
+  <div  class="ui tab segment lab" data-tab="Lab-mongo-01">
+    <h1>MongoDB</h1>
+<p>MongoDB is a store for JSON documents, and allows these documents to be queried and manipulated, using JSON itself as the query language.</p>
+  </div>
+  <div  class="ui tab segment lab" data-tab="01">
+    <h1>MongoLab</h1>
+<p><img alt="" src="img/mongodb-logo.png"> 
+MongoDB is a <em>noSQL</em> database, which means that it does not use traditional SQL and tables with rows and columns. Instead, it is a store for JSON documents, and allows these documents to be queried and manipulated, using JSON itself as the query language.</p>
+<p>Running your own MongoDB cluster requires a significant amount of system administration work. You can outsource this to the cloud by using a MongoDB hosting provider.
+The provider <a href="https://mongolab.com/">MongoLAB</a> offers free  test databases that you can use to complete this practical.</p>
+<p>MongoLab is a fully managed MongoDB-as-a-Service. It supports many of the features you expect including scalability, data protection, performance and availabilty. It also has a free sandbox feature that you can take advantage of to develop your application. </p>
+<h3>Create the database</h3>
+<ol>
+<li>Create a free MongoLab account by following the instructions at <a href="http://mongolab.com">MongoLab </a>.</li>
+<li>Create a new database called <em>contacts_db</em> with the following configuration:</li>
+<li><strong>cloud provider:</strong> <em>Amazon, location: EU(Ireland)</em></li>
+<li><strong>plan:</strong> <em>Single Node, Sandbox (free)</em></li>
+<li><strong>database name:</strong> <em>contacts_db</em></li>
+<li>Select the database and click on the users tab.</li>
+<li>Create a new database user with username:<em> test </em>and password: <em>ewd15</em>.</li>
+</ol>
+<h3>Create a Mongo client</h3>
+<ol>
+<li>Download Mongo from <a href="http://www.mongodb.org/">here</a> and install on your machine.</li>
+<li>We are only going to use the mongo client in this lab. To check it’s installed, go to the command line in the bin folder and run the following command: 
+<code>mongo –version</code>.</li>
+<li>
+<p>To connect to your new cloud database, use the connection string indicated in MongoLAB for connection using the shell. copy it into a terminal/command line as shown below:
+<img alt="" src="img/01.png"></p>
+</li>
+<li>
+<p>The MongoDB command line as a Javascript console. Try the following to illustrate this:</p>
+</li>
+</ol>
+<pre><code>&gt; var foo = 1+2
+&gt; foo
+3
+</code></pre>
+
+<ol>
+<li>Now insert some data into the DB using the following command:
+ ```<blockquote>
+<p>db.contacts.insert({ name: "Joe Bloggs", address: "1 Bank Lane", age: 21,  phone_number: "051-123456 "})
+db.contacts.find()
+{ "_id" : ObjectId("55076970a67574f02cf6a6e9"), "name" : "Joe Bloggs","age": 21,  "address" : "1 Bank Lane", "phone_number" : "051-123456 " }
+ <code>`
+ The db object is provided by MongoDB and represents the current database in use. You can implicitly reference properties on the db object – for examples: db.contacts
+This creates a “collection”, which is like a traditional SQL table. Thus</code>db.contacts<code>references a collection object, which has its own methods, one of which is “insert”.
+To insert a document into the collection, just provide a JavaScript object literal. The document can be as complex as you like, and can contain sub objects and arrays.
+The</code>find()`` method, when used without arguments, returns a list of all documents in the collection. MongoDB automatically creates a unique identifier for each document – the ObjectID, with property <em>_id</em>. Go back to the mongolab website and click on the collections option to see the new contacts collection.</p>
+</blockquote>
+</li>
+<li>Insert some more data:</li>
+</ol>
+<pre><code class="javascript">&gt; db.contacts.insert({ name: &quot;Ellen Bliggs&quot;, address: &quot;2 River Road&quot;, age:23,  phone_number: [{type: &quot;home&quot;, number: &quot;051 12345&quot;},{type: &quot;mobile&quot;, number: &quot;086 12345&quot;}], email: &quot;ebliggs@wit.ie&quot;})
+&gt; db.contacts.find()
+{ &quot;_id&quot; : ObjectId(&quot;5507d9e158a4e53928c21182&quot;), &quot;name&quot; : &quot;Joe Bloggs&quot;, &quot;address&quot; : &quot;1 Bank Lane&quot;, &quot;age&quot; : 21, &quot;phone_number&quot; : &quot;051-123456 &quot; }
+{ &quot;_id&quot; : ObjectId(&quot;5507da502d443a12b40d8b71&quot;), &quot;name&quot; : &quot;Ellen Bliggs&quot;, &quot;address&quot; : &quot;2 River Road&quot;, &quot;age&quot; : 23, &quot;phone_number&quot; : [ { &quot;type&quot; : &quot;home&quot;, &quot;number&quot; : &quot;051 12345&quot; }, { &quot;type&quot; : &quot;mobile&quot;, &quot;number&quot; : &quot;086 12345&quot; } ], &quot;email&quot; : &quot;ebliggs@wit.ie&quot; }
+</code></pre>
+
+<p>Unlike traditional databases, MongoDB does not require a schema – you are not required to define your data structures in advance. You can insert any document into any collection. </p>
+<h3>Querying Data</h3>
+<p>MongoDB offers an easy query language. Of course, joins are not possible! Instead you “denormalize” by replicating data where needed.</p>
+<ol>
+<li>To find matching documents, provide an example document:</li>
+</ol>
+<pre><code>&gt; db.contacts.find({name:'Joe Bloggs'})
+{ &quot;_id&quot; : ObjectId(&quot;55076970a67574f02cf6a6e9&quot;), &quot;name&quot; : &quot;Joe Bloggs&quot;,&quot;age&quot;:23,  &quot;address&quot; : &quot;1 Bank Lane&quot;, &quot;phone_number&quot; : &quot;051-123456 &quot; }
+</code></pre>
+
+<ol>
+<li>Query conditions are specified using the <code>$conditionName:{criteria...}</code>syntax. For example, to find numeric values greater than 10, use: fieldName:{$gt:10}</li>
+</ol>
+<pre><code>&gt; db.contacts.find({age:{$gt:21}})
+{ &quot;_id&quot; : ObjectId(&quot;5507da502d443a12b40d8b71&quot;), &quot;name&quot; : &quot;Ellen Bliggs&quot;, &quot;address&quot; : &quot;2 River Road&quot;, &quot;age&quot; : 23, &quot;phone_number&quot; : [ { &quot;type&quot; : &quot;home&quot;, &quot;number&quot; : &quot;051 12345&quot; }, { &quot;type&quot; : &quot;mobile&quot;, &quot;number&quot; : &quot;086 12345&quot; } ], &quot;email&quot; : &quot;ebliggs@wit.ie&quot; }
+&gt; db.contacts.find({age:{$lt:22}})
+{ &quot;_id&quot; : ObjectId(&quot;5507d9e158a4e53928c21182&quot;), &quot;name&quot; : &quot;Joe Bloggs&quot;, &quot;address&quot; : &quot;1 Bank Lane&quot;, &quot;age&quot; : 21, &quot;phone_number&quot; : &quot;051-123456 &quot; }
+</code></pre>
+
+<p>The condition names are as follows: <code>$gt = greater than, $gte = greater than or equal to, $lt = less than, $lte = less than or equal to,</code>etc.
+See <a href="http://www.mongodb.org/display/DOCS/Advanced+Queries#AdvancedQueries">here</a> for more comprehensive instructions for querying. </p>
+<h3>Sorting Data</h3>
+<ol>
+<li>To sort data, use the chained sort method:</li>
+</ol>
+<pre><code class="javascript">&gt; db.contacts.find({}).sort({name:1})
+{ &quot;_id&quot; : ObjectId(&quot;5507da502d443a12b40d8b71&quot;), &quot;name&quot; : &quot;Ellen Bliggs&quot;, &quot;address&quot; : &quot;2 River Road&quot;, &quot;age&quot; : 23, &quot;phone_number&quot; : [ { &quot;type&quot; : &quot;home&quot;, &quot;number&quot; : &quot;051 12345&quot; }, { &quot;type&quot; : &quot;mobile&quot;, &quot;number&quot; : &quot;086 12345&quot; } ], &quot;email&quot; : &quot;ebliggs@wit.ie&quot; }
+{ &quot;_id&quot; : ObjectId(&quot;5507d9e158a4e53928c21182&quot;), &quot;name&quot; : &quot;Joe Bloggs&quot;, &quot;address&quot; : &quot;1 Bank Lane&quot;, &quot;age&quot; : 21, &quot;phone_number&quot; : &quot;051-123456 &quot; }
+&gt; db.contacts.find({}).sort({name:-1})
+{ &quot;_id&quot; : ObjectId(&quot;5507d9e158a4e53928c21182&quot;), &quot;name&quot; : &quot;Joe Bloggs&quot;, &quot;address&quot; : &quot;1 Bank Lane&quot;, &quot;age&quot; : 21, &quot;phone_number&quot; : &quot;051-123456 &quot; }
+{ &quot;_id&quot; : ObjectId(&quot;5507da502d443a12b40d8b71&quot;), &quot;name&quot; : &quot;Ellen Bliggs&quot;, &quot;address&quot; : &quot;2 River Road&quot;, &quot;age&quot; : 23, &quot;phone_number&quot; : [ { &quot;type&quot; : &quot;home&quot;, &quot;number&quot; : &quot;051 12345&quot; }, { &quot;type&quot; : &quot;mobile&quot;, &quot;number&quot; : &quot;086 12345&quot; } ], &quot;email&quot; : &quot;ebliggs@wit.ie&quot; }
+</code></pre>
+
+<p>If you have too many results, you can limit the number of results using the limit() function:</p>
+<pre><code class="javascript">&gt; db.contacts.find({}).sort({name:1}).limit(1)
+{ &quot;_id&quot; : ObjectId(&quot;5507da502d443a12b40d8b71&quot;), &quot;name&quot; : &quot;Ellen Bliggs&quot;, &quot;address&quot; : &quot;2 River Road&quot;, &quot;age&quot; : 23, &quot;phone_number&quot; : [ { &quot;type&quot; : &quot;home&quot;, &quot;number&quot; : &quot;051 12345&quot; }, { &quot;type&quot; : &quot;mobile&quot;, &quot;number&quot; : &quot;086 12345&quot; } ], &quot;email&quot; : &quot;ebliggs@wit.ie&quot; }
+</code></pre>
+
+<p>To return a subset of the document properties, use a second argument to the find function:</p>
+<pre><code class="javascript">&gt; db.contacts.find({}, {name:1})
+{ &quot;_id&quot; : ObjectId(&quot;5507d9e158a4e53928c21182&quot;), &quot;name&quot; : &quot;Joe Bloggs&quot; }
+{ &quot;_id&quot; : ObjectId(&quot;5507da502d443a12b40d8b71&quot;), &quot;name&quot; : &quot;Ellen Bliggs&quot; }
+</code></pre>
+
+<h2>Updating Data</h2>
+<p>Because MongoDB does not provide traditional database ACID semantics, updates need more care than other database interactions. MongoDB does provide a set of “atomic” operations, in that these operations are guaranteed to complete before matching documents are modified by other updates. These can be used to provide certain forms of data integrity. 
+1. Update operations consist of a query object and then an update object, providing the new data. The following updates the entire record for Joe Bloggs:</p>
+<pre><code class="javascript">&gt; db.contacts.update({name:&quot;Joe Bloggs&quot;},{ name: &quot;Joe Bloggs&quot;, address: &quot;1 Bank Lane&quot;, age: 27,  phone_number: &quot;051-123456 &quot;})
+WriteResult({ &quot;nMatched&quot; : 1, &quot;nUpserted&quot; : 0, &quot;nModified&quot; : 1 })
+</code></pre>
+
+<p>To update only specific properties, use $set and $unset</p>
+<pre><code class="javascript">&gt; db.contacts.update({name:&quot;Joe Bloggs&quot;},{$set:{age: 30} })
+WriteResult({ &quot;nMatched&quot; : 1, &quot;nUpserted&quot; : 0, &quot;nModified&quot; : 1 })
+rs-ds039311:PRIMARY&gt; db.contacts.find({name:&quot;Joe Bloggs&quot;})
+{ &quot;_id&quot; : ObjectId(&quot;5507d9e158a4e53928c21182&quot;), &quot;name&quot; : &quot;Joe Bloggs&quot;, &quot;address&quot; : &quot;1 Bank Lane&quot;, &quot;age&quot; : 30, &quot;phone_number&quot; : &quot;051-123456 &quot; }
+</code></pre>
+
+<p>You can also perform “upsert” operations. In this case, a new document is created if no documents match the query. This is useful for intialising and updating counters using the $inc operator, which increments properties atomically:</p>
+<pre><code>&gt; db.counter.update({name:'one'},{$inc:{count:1}},true)
+&gt; db.counter.find()
+{ &quot;_id&quot; : ObjectId(&quot;4f3a4f9cc801a4b87bee6a12&quot;), &quot;count&quot; : 1, &quot;name&quot; : &quot;one&quot; }
+&gt; db.counter.update({name:'one'},{$inc:{count:1}},true)
+&gt; db.counter.find()
+{ &quot;_id&quot; : ObjectId(&quot;4f3a4f9cc801a4b87bee6a12&quot;), &quot;count&quot; : 2, &quot;name&quot; : &quot;one&quot; }
+</code></pre>
+
+<p>An upsert is performed if the third argument to update is <code>true</code>:
+<code>db.counter.update({name:'one'},{$inc:{count:1}},true)</code></p>
+<h3>Removing Data</h3>
+<p>Remove operations are similar to find and update in that the first argument is a pattern object to match against. All matching documents are removed.
+1. Remove an object from the contacts collection</p>
+<pre><code class="javascript">&gt; db.contacts.remove({name:&quot;Joe Bloggs&quot;})
+</code></pre>
+
+<p>or</p>
+<pre><code class="javascript">&gt; db.contacts.remove({_id:ObjectId(&quot;4f3a4983199668116a823447&quot;)})
+</code></pre>
+
+<p>In the second script, the object is removed using its _id unique identifier. In general, MongoDB operations are most efficient if the query used the _id value to specify the object.</p>
+  </div>
+  <div  class="ui tab segment lab" data-tab="02">
+    <h1>MongoDB and Node.js</h1>
+<p>This section requires that you have the web service from  lab 7 completed.
+We now want to increase the functionality of the API and add integration to Mongo DB. </p>
+<h3>Set up</h3>
+<p>Create a new folder called <em>lab8</em> and copy the contents from the lab7 folder that you completed last week. Make sure it works to spec. by testing the app with a Rest client. </p>
+<h3>Mongo from Node..js</h3>
+<p>To add connection capability to Mongo, we need the MongoDB package. Install this package by running <code>npm install mongodb --save</code> in the <em>Lab8</em> folde . The save ensures that the <em>package.json</em> file is updated to incude this dependency.
+You can get plenty of information about mongodb module at <a href="http://mongodb.github.io/node-mongodb-native/">http://mongodb.github.io/node-mongodb-native/</a>. We will reuse the <em>contacts</em> collection from the last section. Make sure you have some data to work with in this collection.</p>
+<h4>Connecting to the cloud data store</h4>
+<p>Last week you were using an in memory collection. We will keep the same API and update the <em>index.js</em> file to create a connection to the MongoLab db from your API code.</p>
+<ul>
+<li>First, remove the contents of the <em>index.js</em> so that just an empty skeleton of the API remains. Your <em>index.js</em> should look like this:</li>
+</ul>
+<pre><code class="javascript">// Get list of contacts
+exports.index = function(req, res) {
+
+} ;
+
+// Creates a new contact in datastore.
+exports.create = function(req, res) {
+
+};
+
+// Update an existing contact in datastore.
+exports.update = function(req, res) {
+
+};
+
+// delete an existing contact in datastore.
+exports.delete = function(req, res) {
+
+};
+</code></pre>
+
+<ul>
+<li>Add the following code at the first line of <em>index.js</em>:</li>
+</ul>
+<pre><code class="javascript">var mongo = require('mongodb');
+var BSON = mongo.BSONPure;
+// get mongo client
+var mongoClient = mongo.MongoClient;
+var mongoDb;
+mongoClient.connect(&quot;mongodb://test:ewd15@&lt;YOUR_DOMAIN&gt;.mongolab.com:39311/contacts_db&quot;, function(err, db) {
+  if(!err) {
+    console.log(&quot;We are connected&quot;);
+    mongoDb = db;
+  }
+  else
+  {
+    console.log(&quot;Unable to connect to the db&quot;);
+  }
+});
+</code></pre>
+
+<p>This code uses the MongoDB module to create a connection to your database. We will also use the <code>BSON</code> object,  binary-encoded serialization of JSON-like documents, to encode, decode the Mongo ID. 
+For this to work, You will need to update this script so that it connects to your Mongo DB. To do this, get the connection information from MongoLab. See <a href="http://docs.mongolab.com/connecting/#connect-string">here</a> for more info.
+- Now run the service to check if the connection is working. You should see the following in the terminal, command line:
+<img alt="" src="img/02.png"></p>
+<h4>Get Contact Details</h4>
+<p>We need to provide the data access logic for each route, modify index.js <em>index</em> function to use the data contained in the Mongo database.  Place the following code in the <em>index</em> function:</p>
+<pre><code class="javascript">      // Connect to the db
+    if (mongoDb){
+      var collection = mongoDb.collection('contacts');
+      collection.find().toArray(function(err, items) {
+        res.send(items);
+      });
+    }
+    else
+    {
+        console.log('No database object!');
+    }
+</code></pre>
+
+<p>This code checks the mongoDb exists and, if so, executes a find() query. We chain the toArray() function after the find() to covert the resonse to an array. This is then returned in the response (i.e. <code>res.send(items)</code>
+Test with your Rest client by running a HTTP GET request. You should see something similar to the following in the response:
+<img alt="" src="img/03.png"></p>
+<h4>Create a Contact</h4>
+<p>Modify the <em>create</em> function to create data contained in the Mongo database.  Place the following code in the <em>create</em> function:</p>
+<pre><code class="javascript">    var contact = req.body;
+    console.log('Adding contact: ' + JSON.stringify(contact));
+    if (mongoDb){
+      var collection = mongoDb.collection('contacts');
+      collection.insert(contact, {w:1}, function(err, result) {
+            if (err) {
+                res.send({'error':'An error has occurred'});
+            } else {
+                console.log('Success: ' + JSON.stringify(result[0]));
+                res.send(result[0]);
+            }
+        });
+    }
+  else
+  {
+    console.log('No database object!');
+  }
+</code></pre>
+
+<p>Test that the create contact works by posting the following contact JSON document to the service using a HTTP POST in the Rest Client:</p>
+<pre><code class="json">{&quot;name&quot;:&quot;Bob Hope&quot;,&quot;address&quot;:&quot;2 Bob Road&quot;, &quot;age&quot;:55, &quot;phone_number&quot;: [{&quot;type&quot;:&quot;home&quot;,&quot;number&quot;:&quot;051 12345&quot;}, {&quot;type&quot;:&quot;mobile&quot;,&quot;number&quot;:&quot;086 12345&quot;}], &quot;email&quot;:&quot;bhope@wit.ie&quot;}
+</code></pre>
+
+<p>All going well, you should see a new contact record in your database. Check this by running a HTTP GET request.</p>
+<h4>Update a Contact</h4>
+<ul>
+<li>Our update function will update a complete record in the DB. Add the following code to the update function:</li>
+</ul>
+<pre><code class="javascript">  var id = req.params.id;
+    var contact = req.body;
+    console.log('Updating contact: ' + id);
+    console.log(JSON.stringify(contact));
+    var collection = mongoDb.collection('contacts');
+    collection.update({'_id':new BSON.ObjectID(id)}, contact, {safe:true}, function(err, result) {
+            if (err) {
+                console.log('Error updating contact: ' + err);
+                res.send({'error':'An error has occurred'});
+            } else {
+                console.log('' + result + ' document(s) updated');
+                res.send(contact);
+            }
+    });
+</code></pre>
+
+<p>Test this works as before by updating the last contact(Bob Hope) you entered to the following:</p>
+<pre><code class="JSON">{&quot;name&quot;:&quot;Bob Hope&quot;,&quot;address&quot;:&quot;22 Bob Road&quot;,&quot;age&quot;:55,&quot;phone_number&quot;:[{&quot;type&quot;:&quot;home&quot;,&quot;number&quot;:&quot;051 12345&quot;},{&quot;type&quot;:&quot;mobile&quot;,&quot;number&quot;:&quot;086 12345&quot;}],&quot;email&quot;:&quot;bhope@wit.ie&quot;}
+</code></pre>
+
+<h4>Delete a Contact</h4>
+<ul>
+<li>Finally, add the delete functionality by adding the following code to the delee function:</li>
+</ul>
+<pre><code class="javascript">    var id = req.params.id;
+    console.log('Deleting contact: ' + id);
+    var collection = mongoDb.collection('contact');
+    collection.remove({'_id':new BSON.ObjectID(id)}, {safe:true},     function(err, result) {
+        if (err) {
+            res.send({'error':'An error has occurred - ' + err});
+        } else {
+            console.log('' + result + ' document(s) deleted');
+            res.send(req.body);
+        }
+    });
+</code></pre>
+
+<p>Again, check this works using the Rest client.</p>
+<h4>Enhancing the Service.</h4>
+<p>Enhance the API functions to provide the following:
+- Get a contacts details.</p>
+  </div>
+<script>
+$('.ui.menu .item')
+  .tab({
+    history: true,
+    historyType: 'hash'
+  })
+;
+</script>
+   </div>
+
+
+
+  <br><br>
+  <div class="ui bottom fixed borderless menu">
+    <div class="ui small item">
+    <p id="footertext">
+    Prepared by  Frank Walsh (fxwalsh@wit.ie)
+. Except where otherwise noted, this content is licensed under a
+     <a  href="http://creativecommons.org/licenses/by-nc/4.0/" title="External link to http://creativecommons.org/licenses/by-nc/4.0/"
+       target="_blank">Creative Commons Attribution-NonCommercial 4.0 License
+     </a>
+     </p>
+    </div>
+  </div>    <script>
+
+$(document).ready(function()
+{
+  $("img").addClass ("ui image");
+
+  var images = $(".lab img");
+  jQuery.each(images, function(i)  {
+    if((images[i].alt).length > 0)
+    {
+      var div_img = $(document.createElement("div")).addClass("ui segment");
+      $(images[i]).wrap(div_img);
+      var div_label = $(document.createElement("div")).addClass("ui ribbon teal top attached label");
+      div_label.append(images[i].alt);
+      $(div_label).insertBefore(images[i]);
+    }
+  });
+})    </script>
+
+  </body>
+ </html>
