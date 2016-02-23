@@ -1,0 +1,217 @@
+ <!DOCTYPE html>
+ <html>
+   <head>
+
+     <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+
+     <meta charset="utf-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.4/semantic.min.css" type="text/css">
+     <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/styles/solarized_light.min.css" rel="stylesheet" />
+
+     <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.address/1.6/jquery.address.min.js"></script>
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.4/semantic.min.js"></script>
+     <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/highlight.min.js"></script>
+     <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/languages/java.min.js"></script>
+     <script>hljs.initHighlightingOnLoad();</script>
+
+      <style>
+
+
+body 
+{
+  font-family: "Open Sans", "Helvetica", "Helvetica Neue",  "Arial", sans-serif;
+}
+
+figcaption
+{
+  margin-bottom: 20px;
+}
+
+.vertical-align
+{
+  display: flex;
+  align-items: center;
+}
+
+.credits
+{
+  min-height:20px;
+}
+    </style>
+
+  </head>
+
+  <body>
+
+  <div class="ui container">
+<style>
+
+
+code
+{
+  font-family: "Monaco";
+  font-size: 110%;
+}
+
+img
+{
+  padding:1px;
+  border:1px solid black;
+}
+
+h1
+{
+  font-style:italic;
+  font-size:130%;
+  border-bottom: thin solid black;
+}
+h2
+{
+  font-size:110%;
+  border-bottom: thin solid black;
+}
+h3
+{
+  font-size:100%;
+  border-bottom: thin solid black;
+}
+
+</style>
+
+<div class="ui fixed top pointing inverted menu labmenu">
+  <header class="header item">
+    <a href="../index.html">
+      <i class="sitemap icon"></i>
+      Microservices
+    </a>
+  </header>
+  <div class="right tab-menu menu">
+    <a class="active item" data-tab="Lab-PubSub-01">
+        Lab-PubSub-01
+    </a>
+      <a class="item" data-tab="01">
+        01
+      </a>
+    </div>
+</div>
+
+<br><br>
+
+  <div  class="ui tab segment lab" data-tab="Lab-PubSub-01">
+    <p>In this lab you will add publish subscribe to the contacts service from the last lab. We will implement the confirmation email example from the Microservices talk.</p>
+  </div>
+  <div  class="ui tab segment lab" data-tab="01">
+    <h1>Publish Subscribe</h1>
+<h3>Publish-Subscribe Service</h3>
+<p>Create an account with <a href="www.pubnub.com">PubNub</a> </p>
+<h3>EMail Service</h3>
+<p>Create an account with <a href="mailgun.com">MailGun</a> .</p>
+<h3>Update Contact Service</h3>
+<p>Update the contact service to publish to your PubNub publish subscribe service.
+Add the PubNub.js package to your service using NPM</p>
+<pre><code>npm install pubnub --save
+</code></pre>
+
+<p>In the base folder of the contacts service, add a new folder called <strong>config</strong>. In the config folder, create a new module called <strong>pubsub.js</strong> and add the following code. Use your keys from the PubNub:</p>
+<pre><code>'use strict';
+
+// Mail service configuration
+// ===========================
+module.exports = require(&quot;pubnub&quot;).init({
+            publish_key : &quot;pub-c-xxx&quot;,
+            subscribe_key : &quot;sub-c-xxx&quot;
+     });
+</code></pre>
+
+<p>In <strong>api/contacts/app.js</strong> initialise the api by adding the following code just under the mongodb initialisation.</p>
+<pre><code>var pubnub = require(&quot;../../config/pubnub.js&quot;)
+</code></pre>
+
+<p>Now add the following code to the callback function on creation of a contact:</p>
+<pre><code>pubnub.publish({
+                        channel: 'create_contact_event',        
+                        message: JSON.stringify(contact),
+                        callback : function(m){console.log('New_Contact_Event:' + m)}
+                });
+</code></pre>
+
+<p>Test your service by adding a new contact. Check the console to see if the event is successfully published.</p>
+<h3>EMail Service</h3>
+<p>Add the MailGun-js Package to your service</p>
+<pre><code>npm install mailgun-js --save
+</code></pre>
+
+<p>Create a new Node application that subscribes to your PubNub app and sends a confirmation mail every time a new contact event is created
+In the base folder of your service, create a new file called <strong>mail_app.js</strong> and add the following code, updating the key and domain values  from your MailGun account:</p>
+<pre><code>var api_key = 'key-xxx';
+var domain = 'sandboxxxx.mailgun.org';
+var mailgun = require('mailgun-js')({apiKey: api_key, domain: domain});
+var pubnub = require('./config/pubnub.js');
+
+// Subscribe to the demo_tutorial channel
+pubnub.subscribe({
+    channel: 'create_contact_event',
+    message: function(m){console.log('Send email to '+JSON.parse(m).email);
+            var data = {
+            from: 'WIT BSc IT &lt;me@wit.ie&gt;',
+            to: JSON.parse(m).email,
+            subject: 'Welcome',
+            text: 'Welcome to the company!!!'
+            };
+
+        mailgun.messages().send(data, function (error, body) {
+        console.log(body);
+        });
+    }
+});
+</code></pre>
+
+<p>Now test by adding a contact via your api. Make sure to include an email field in the contact object.</p>
+  </div>
+<script>
+$('.ui.menu .item')
+  .tab({
+    history: true,
+    historyType: 'hash'
+  })
+;
+</script>
+   </div>
+
+
+
+  <br><br>
+  <div class="ui bottom fixed borderless menu">
+    <div class="ui small item">
+    <p id="footertext">
+    Prepared by  Frank Walsh (fxwalsh@wit.ie)
+. Except where otherwise noted, this content is licensed under a
+     <a  href="http://creativecommons.org/licenses/by-nc/4.0/" title="External link to http://creativecommons.org/licenses/by-nc/4.0/"
+       target="_blank">Creative Commons Attribution-NonCommercial 4.0 License
+     </a>
+     </p>
+    </div>
+  </div>    <script>
+
+$(document).ready(function()
+{
+  $("img").addClass ("ui image");
+
+  var images = $(".lab img");
+  jQuery.each(images, function(i)  {
+    if((images[i].alt).length > 0)
+    {
+      var div_img = $(document.createElement("div")).addClass("ui segment");
+      $(images[i]).wrap(div_img);
+      var div_label = $(document.createElement("div")).addClass("ui ribbon teal top attached label");
+      div_label.append(images[i].alt);
+      $(div_label).insertBefore(images[i]);
+    }
+  });
+})    </script>
+
+  </body>
+ </html>
