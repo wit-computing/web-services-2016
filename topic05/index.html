@@ -83,35 +83,37 @@ figcaption
 
 
 <div class="ui four doubling stackable cards">
-      <a class="ui card" href="./talk-1/mongoose.pdf">
+      <div class="ui card">
     <div class="content">
-      <div class="right floated meta"> <i class="film large icon"></i></div>
-      <div class="header">  Mongoose </div>
+        <div class="right floated meta"> <i class="film large icon"></i></div>
+        <div class="header">  Mongoose </div>
     </div>
-    <div class="ui bordered rounded image">
-      <img src="./talk-1/mongoose.png">
-    </div>
+    <a href="./talk-1/mongoose.pdf">
+      <img class="ui bordered rounded image" src="./talk-1/mongoose.png">
+    </a>
     <div class="content">
       <div class="description">
          <p>This talk introduces  Mongoose and Lodash. You will learn how to apply Mongoose to improve  your existing labwork. </p>
       </div>
     </div>
-  </a>
+  </div>
 
-      <a class="ui card" href="book-1/index.html">
+
+      <div class="ui card">
     <div class="content">
-      <div class="right floated meta"> <i class="lab large icon"></i></div>
-      <div class="header"> Lab-Mongoose-01 </div>
+        <div class="right floated meta"> <i class="lab large icon"></i></div>
+        <div class="header"> Lab-Mongoose-01 </div>
     </div>
-    <div class="ui bordered rounded image">
-      <img src="./book-1/img/main.jpg">
-    </div>
+    <a href="book-1/index.html">
+      <img class="ui bordered rounded image" src="./book-1/img/main.jpg">
+    </a>
     <div class="content">
       <div class="description">
          <p>In this lab you will update your previous lab to use the Mongoose package. You will also externalise some of the environment and personal parameters from your app.</p>
       </div>
     </div>
-  </a>
+  </div>
+
 
   </div>
    </div>
@@ -134,6 +136,7 @@ figcaption
 $(document).ready(function()
 {
   $("img").addClass ("ui image");
+  $('.ui.embed').embed();
 
   var images = $(".lab img");
   jQuery.each(images, function(i)  {
@@ -146,6 +149,8 @@ $(document).ready(function()
       $(div_label).insertBefore(images[i]);
     }
   });
+
+
 })    </script>
 
   </body>

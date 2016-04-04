@@ -83,80 +83,101 @@ figcaption
 
 <div class="ui four doubling stackable cards">
 
-    <a class="ui card" href="./topic01/index.html">
+    <div class="ui card">
     <div class="content">
-      <div class="right floated meta"> <i class="sitemap large icon"></i></div>
-      <div class="header"> Introduction to Web Services </div>
+        <div class="right floated meta"> <i class="sitemap large icon"></i></div>
+        <div class="header"> Introduction to Web Services </div>
     </div>
-    <div class="ui bordered rounded image">
-      <img src="./topic01/./talk-1/web-services-intro.png">
-    </div>
+    <a href="./topic01/index.html">
+      <img class="ui bordered rounded image" src="./topic01/./talk-1/web-services-intro.png">
+    </a>
     <div class="content">
       <div class="description">
          <p>This topic provides a introduction to  Web Services. You will cover what a web service is, what they are used for, and how web services technology has evolved. </p>
       </div>
     </div>
-  </a>
+  </div>
 
-    <a class="ui card" href="./topic02/index.html">
+
+    <div class="ui card">
     <div class="content">
-      <div class="right floated meta"> <i class="sitemap large icon"></i></div>
-      <div class="header"> Node.js </div>
+        <div class="right floated meta"> <i class="sitemap large icon"></i></div>
+        <div class="header"> Node.js </div>
     </div>
-    <div class="ui bordered rounded image">
-      <img src="./topic02/./talk-1/node.png">
-    </div>
+    <a href="./topic02/index.html">
+      <img class="ui bordered rounded image" src="./topic02/./talk-1/node.png">
+    </a>
     <div class="content">
       <div class="description">
          <p>This topic introduces Node.js, a JavaScript runtime built on Chrome's V8 JavaScript engine. </p>
       </div>
     </div>
-  </a>
+  </div>
 
-    <a class="ui card" href="./topic03/index.html">
+
+    <div class="ui card">
     <div class="content">
-      <div class="right floated meta"> <i class="sitemap large icon"></i></div>
-      <div class="header"> Data Stores </div>
+        <div class="right floated meta"> <i class="sitemap large icon"></i></div>
+        <div class="header"> Data Stores </div>
     </div>
-    <div class="ui bordered rounded image">
-      <img src="./topic03/./talk-1/cloud-storage.png">
-    </div>
+    <a href="./topic03/index.html">
+      <img class="ui bordered rounded image" src="./topic03/./talk-1/cloud-storage.png">
+    </a>
     <div class="content">
       <div class="description">
          <p>This topic introduces Data Stores in the context of web services and distributed systems.</p>
       </div>
     </div>
-  </a>
+  </div>
 
-    <a class="ui card" href="./topic04/index.html">
+
+    <div class="ui card">
     <div class="content">
-      <div class="right floated meta"> <i class="sitemap large icon"></i></div>
-      <div class="header"> Microservices </div>
+        <div class="right floated meta"> <i class="sitemap large icon"></i></div>
+        <div class="header"> Microservices </div>
     </div>
-    <div class="ui bordered rounded image">
-      <img src="./topic04/./talk-1/microservices.png">
-    </div>
+    <a href="./topic04/index.html">
+      <img class="ui bordered rounded image" src="./topic04/./talk-1/microservices.png">
+    </a>
     <div class="content">
       <div class="description">
          <p>This topic introduces Microservices.</p>
       </div>
     </div>
-  </a>
+  </div>
 
-    <a class="ui card" href="./topic05/index.html">
+
+    <div class="ui card">
     <div class="content">
-      <div class="right floated meta"> <i class="sitemap large icon"></i></div>
-      <div class="header"> Mongoose </div>
+        <div class="right floated meta"> <i class="sitemap large icon"></i></div>
+        <div class="header"> Mongoose </div>
     </div>
-    <div class="ui bordered rounded image">
-      <img src="./topic05/./talk-1/mongoose.png">
-    </div>
+    <a href="./topic05/index.html">
+      <img class="ui bordered rounded image" src="./topic05/./talk-1/mongoose.png">
+    </a>
     <div class="content">
       <div class="description">
          <p>This topic introduces Mongoose, a schema-based solution to model your application data.</p>
       </div>
     </div>
-  </a>
+  </div>
+
+
+    <div class="ui card">
+    <div class="content">
+        <div class="right floated meta"> <i class="sitemap large icon"></i></div>
+        <div class="header"> Highly Available Applications </div>
+    </div>
+    <a href="./topic06/index.html">
+      <img class="ui bordered rounded image" src="./topic06/./talk-1/cloud.png">
+    </a>
+    <div class="content">
+      <div class="description">
+         <p>This topic introduces fault tolerant, scalable, highly available cloud-based applications.</p>
+      </div>
+    </div>
+  </div>
+
 
 </div>
 
@@ -180,6 +201,7 @@ figcaption
 $(document).ready(function()
 {
   $("img").addClass ("ui image");
+  $('.ui.embed').embed();
 
   var images = $(".lab img");
   jQuery.each(images, function(i)  {
@@ -192,6 +214,8 @@ $(document).ready(function()
       $(div_label).insertBefore(images[i]);
     }
   });
+
+
 })    </script>
 
   </body>

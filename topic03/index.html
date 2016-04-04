@@ -83,50 +83,53 @@ figcaption
 
 
 <div class="ui four doubling stackable cards">
-      <a class="ui card" href="./talk-1/cloud-storage.pdf">
+      <div class="ui card">
     <div class="content">
-      <div class="right floated meta"> <i class="film large icon"></i></div>
-      <div class="header"> Cloud Storage </div>
+        <div class="right floated meta"> <i class="film large icon"></i></div>
+        <div class="header"> Cloud Storage </div>
     </div>
-    <div class="ui bordered rounded image">
-      <img src="./talk-1/cloud-storage.png">
-    </div>
+    <a href="./talk-1/cloud-storage.pdf">
+      <img class="ui bordered rounded image" src="./talk-1/cloud-storage.png">
+    </a>
     <div class="content">
       <div class="description">
          <p>This talk covers cloud databases and MongoDB. You will learn about characteristics of distributed cloud-based data stores and how to use MongoDB with Node.js applications.</p>
       </div>
     </div>
-  </a>
+  </div>
 
-      <a class="ui card" href="book-1/index.html">
+
+      <div class="ui card">
     <div class="content">
-      <div class="right floated meta"> <i class="lab large icon"></i></div>
-      <div class="header"> Lab-mongo-01 </div>
+        <div class="right floated meta"> <i class="lab large icon"></i></div>
+        <div class="header"> Lab-mongo-01 </div>
     </div>
-    <div class="ui bordered rounded image">
-      <img src="./book-1/img/main.png">
-    </div>
+    <a href="book-1/index.html">
+      <img class="ui bordered rounded image" src="./book-1/img/main.png">
+    </a>
     <div class="content">
       <div class="description">
          <p>MongoDB is a store for JSON documents, and allows these documents to be queried and manipulated, using JSON itself as the query language.</p>
       </div>
     </div>
-  </a>
+  </div>
 
-      <a class="ui card" href="book-2/index.html">
+
+      <div class="ui card">
     <div class="content">
-      <div class="right floated meta"> <i class="lab large icon"></i></div>
-      <div class="header"> Assignment-1 </div>
+        <div class="right floated meta"> <i class="lab large icon"></i></div>
+        <div class="header"> Assignment-1 </div>
     </div>
-    <div class="ui bordered rounded image">
-      <img src="./book-2/img/main.png">
-    </div>
+    <a href="book-2/index.html">
+      <img class="ui bordered rounded image" src="./book-2/img/main.png">
+    </a>
     <div class="content">
       <div class="description">
          <p>Develop a node-based API for data persistence. Continuous assessment percentage - 50% (25% of your overall mark including final exam).</p>
       </div>
     </div>
-  </a>
+  </div>
+
 
   </div>
    </div>
@@ -149,6 +152,7 @@ figcaption
 $(document).ready(function()
 {
   $("img").addClass ("ui image");
+  $('.ui.embed').embed();
 
   var images = $(".lab img");
   jQuery.each(images, function(i)  {
@@ -161,6 +165,8 @@ $(document).ready(function()
       $(div_label).insertBefore(images[i]);
     }
   });
+
+
 })    </script>
 
   </body>
