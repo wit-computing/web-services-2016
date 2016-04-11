@@ -85,12 +85,12 @@ h3
   <header class="header item">
     <a href="../index.html">
       <i class="sitemap icon"></i>
-      Mongoose
+      Highly Available Applications
     </a>
   </header>
   <div class="right tab-menu menu">
-    <a class="active item" data-tab="Lab-Mongoose-01">
-        Lab-Mongoose-01
+    <a class="active item" data-tab="Lab-Scaffolding-01">
+        Lab-Scaffolding-01
     </a>
       <a class="item" data-tab="01">
         01
@@ -100,12 +100,174 @@ h3
 
 <br><br>
 
-  <div  class="ui tab segment lab" data-tab="Lab-Mongoose-01">
-    <p>In this lab you will update your previous lab to use the Mongoose package. You will also externalise some of the environment and personal parameters from your app.</p>
+  <div  class="ui tab segment lab" data-tab="Lab-Scaffolding-01">
+    <h1>Scaffolding</h1>
+<p>In this lab you will use a scaffolding tool to build a full stack web application.</p>
   </div>
   <div  class="ui tab segment lab" data-tab="01">
-    <h1>Go Here...</h1>
-<p><a href="https://www.gitbook.com/book/fxwalsh/lab-mongoose-1/">Git Book Mongoose Lab</a> </p>
+    <h1>Yeoman Lab</h1>
+<h3>Prerequesites</h3>
+<p>Make sure you have MongoDB installed on your local machine</p>
+<h3>Installing Yeoman</h3>
+<p>Download and install generator-angular-fullstack.</p>
+<pre><code class="Javascript">npm install -g generator-angular-fullstack
+</code></pre>
+
+<p>Run the generator and accept  all defaults, except use CSS instead of Sass.</p>
+<pre><code class="Javascript">mkdir angular-tube
+cd angular-tube
+yo angular-fullstack
+</code></pre>
+
+<p>If everything installed correctly, running <code>grunt serve</code> should start the generated app with a welcome screen. We can leave this terminal open to keep our server alive while we edit it.</p>
+<p>Create a new terminal and cd into the project folder for running additional generators.</p>
+<p>Project Structure
+The project structure</p>
+<p>Lets take a moment to look at the project so far so we have a good idea where everything is.</p>
+<pre><code>├── client
+│   ├── app                 - All of our app specific components go in here
+│   ├── assets              - Custom assets: fonts, images, etc… 
+│   ├── components          - Our reusable components, non-specific to to our app
+│ 
+├── e2e                     - Our protractor end to end tests
+│
+└── server
+    ├── api                 - Our apps server api
+        ├── auth                - For handling authentication with different auth strategies
+        ├── components          - Our reusable or app-wide components
+        ├── config              - Where we do the bulk of our apps configuration
+        │   └── local.env.js    - Keep our environment variables out of source control.
+        │   └── environment     - Configuration specific to the environment the server is being run in
+        └── views               - Server rendered views
+</code></pre>
+<p>Thats an overview of the structure, lets drill down little on a client component.</p>
+<pre><code>main
+├── main.controller.js      - Controller for our main route
+├── main.controller.spec.js - Our test
+├── main.html               - Our view
+├── main.js                 - Registers the route
+└── main.less               - Our styles
+</code></pre>
+<p>This structure allows for quite a bit of modularity, but it groups things together logically, so you have an easier time working on a component, and an easier time extracting it out into another project later.</p>
+<h3>Creating an API endpoint</h3>
+<p>Generate a comments endpoint using the endpoint generator:</p>
+<pre><code>yo angular-fullstack:endpoint comment
+[?] What will the url of your endpoint to be? /api/comments
+
+</code></pre>
+
+<p>The endpoint that generates should be accessible now. If you navigate your browser to localhost:9000/api/comments, you should see an empty array as the response.</p>
+<h3>Comment model using Mongoose</h3>
+<p>Yeoman would have generated a "vanilla" mongoose model in <code>/server/api/comment/comment.model.js</code>. Open the generated model in a text editor and create the following Schema.</p>
+<pre><code>// server/api/comment/comment.model.js
+'use strict';
+
+var mongoose = require('mongoose'),
+    Schema = mongoose.Schema;
+
+var CommentSchema = new Schema({
+  content: String,
+  date: { type: Date, default: Date.now },
+  author: {
+    type: Schema.Types.ObjectId,
+    ref: 'User'
+  }
+});
+
+CommentSchema.statics = {
+  loadRecent: function(cb) {
+    this.find({})
+      .populate({path:'author', select: 'name'})
+      .sort('-date')
+      .limit(20)
+      .exec(cb);
+  }
+};
+
+module.exports = mongoose.model('Comment', CommentSchema);
+</code></pre>
+
+<p>For our comments, we need a content field for the message, a date field for when the comment was created, and an author field – which will hold the id of the user that created the comment.</p>
+<p>The static method  defines some custom actions on the model. In this case, it loads the 20 most recent comments. It will populate the comments with the name of the user, based on the comments author id, this is similar to a join in sql.</p>
+<h3>Comment Routes</h3>
+<p>Because posting a comment requires a user, setup routing to only allow logged in users to add comments.</p>
+<pre><code class="Javascript">// server/api/comment/index.js
+'use strict';
+
+var express = require('express');
+var controller = require('./comment.controller');
+var auth = require('../../auth/auth.service');
+
+var router = express.Router();
+
+router.get('/', controller.index);
+router.post('/', auth.isAuthenticated(), controller.create);
+router.delete('/:id', auth.isAuthenticated(), controller.destroy);
+
+module.exports = router;
+</code></pre>
+
+<p>The isAuthenticated method allows us to restrict routes to only users who are logged in. It also attaches the authenticated user to req.user, which we will use in our controller.</p>
+<h3>Comment Controller</h3>
+<p>Our comment controller is where we handle the request and response for our endpoint. We want to use the loadRecent method, that we just added to the model, to find the recent comments populated with the authors information, and return that as the response. We also want to save the authors user id whenever a comment is created.</p>
+<pre><code class="Javascript">// server/api/comment/comment.controller.js
+
+...
+
+ // Gets a list of Comments
+  export function index(req, res) {
+     Comment.loadRecent(function (err, comments) {
+      if(err) { return handleError(res, err); }
+      return res.json(200, comments);
+    });
+  }
+
+// Creates a new Comment in the DB
+export function create(req, res) {
+  // don't include the date, if a user specified it
+  delete req.body.date;
+
+  var comment = new Comment(_.merge({ author: req.user._id }, req.body));
+  comment.save(function(err, comment) {
+    if(err) { return handleError(res, err); }
+    return res.json(201, comment);
+  });
+}
+
+...
+</code></pre>
+
+<h3>Client App</h3>
+<p>We'll now create a small client app that consumes the above service</p>
+<p>Delete the client/app/main folder, we’ll generate our own, and when prompted set the url to /:</p>
+<pre><code>yo angular-fullstack:route main
+[?] Where would you like to create this route? client/app/
+[?] What will the url of your route be? (/main) /
+</code></pre>
+
+<p>And we’ll add the markup for our comment form to the main view:</p>
+<pre><code class="HTML">&lt;!-- client/app/main/main.html --&gt;
+
+&lt;div ng-include=&quot;'components/navbar/navbar.html'&quot;&gt;&lt;/div&gt;
+
+&lt;div class=&quot;container&quot;&gt;
+  &lt;iframe width=&quot;100%&quot; height=&quot;410&quot; src=&quot;//www.youtube.com/embed/DcJFdCmN98s&quot; frameborder=&quot;0&quot;&gt;&lt;/iframe&gt;
+
+  &lt;form class=&quot;comment-form&quot; ng-submit=&quot;addComment()&quot; name=&quot;commentForm&quot;&gt;
+    &lt;textarea class=&quot;form-control&quot; ng-model=&quot;newComment&quot; rows=&quot;3&quot; placeholder=&quot;Enter a new comment&quot; required&gt;&lt;/textarea&gt;
+    &lt;input class=&quot;btn btn-primary&quot; type=&quot;submit&quot; ng-disabled=&quot;commentForm.$invalid&quot; value=&quot;Post&quot;&gt;
+  &lt;/form&gt;
+
+  &lt;ul class=&quot;comment-list&quot;&gt;
+    &lt;li ng-repeat=&quot;comment in comments&quot;&gt;
+      &lt;header&gt;{{ comment.author.name }}&lt;/header&gt;
+      &lt;p&gt;{{ comment.content }}&lt;/p&gt;
+    &lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/div&gt;
+</code></pre>
+
+<p>If you’re familiar with Angular, this should be pretty self-explanatory. Its just a form for submitting comments, and an ng-repeat for displaying them.</p>
   </div>
 <script>
 $('.ui.menu .item')

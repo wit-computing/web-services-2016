@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<!-- saved from url=(0073)http://tylerhenkel.com/building-an-angular-node-comment-app-using-yeoman/ -->
+<html lang="en-US"><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+	
+	<meta name="viewport" content="width=device-width">
+	<title>Building an Angular + Node Comment App using Yeoman | Tyler Henkel's Portfolio</title>
+	<link rel="profile" href="http://gmpg.org/xfn/11">
+	<link rel="pingback" href="http://tylerhenkel.com/xmlrpc.php">
+	
+		
+		<link rel="shortcut icon" href="http://tylerhenkel.com/wp-content/uploads/2013/09/favicon.png" type="image/x-icon">
+		
+	
+	<!--[if lt IE 9]>
+	<script src="http://tylerhenkel.com/wp-content/themes/identify-v1.0.3/js/html5.js" type="text/javascript"></script>
+	<![endif]-->
+
+	<link rel="alternate" type="application/rss+xml" title="Tyler Henkel&#39;s Portfolio » Feed" href="http://tylerhenkel.com/feed/">
+<link rel="alternate" type="application/rss+xml" title="Tyler Henkel&#39;s Portfolio » Comments Feed" href="http://tylerhenkel.com/comments/feed/">
+<link rel="alternate" type="application/rss+xml" title="Tyler Henkel&#39;s Portfolio » Building an Angular + Node Comment App using Yeoman Comments Feed" href="http://tylerhenkel.com/building-an-angular-node-comment-app-using-yeoman/feed/">
+<link rel="stylesheet" id="hupso_css-css" href="./Building an Angular + Node Comment App using Yeoman _ Tyler Henkel&#39;s Portfolio_files/style.css" type="text/css" media="all">
+<link rel="stylesheet" id="style-css" href="./Building an Angular + Node Comment App using Yeoman _ Tyler Henkel&#39;s Portfolio_files/style(1).css" type="text/css" media="all">
+<div class="fit-vids-style">­<style>               .fluid-width-video-wrapper {                 width: 100%;                              position: relative;                       padding: 0;                            }                                                                                   .fluid-width-video-wrapper iframe,        .fluid-width-video-wrapper object,        .fluid-width-video-wrapper embed {           position: absolute;                       top: 0;                                   left: 0;                                  width: 100%;                              height: 100%;                          }                                       </style></div><script async="" src="./Building an Angular + Node Comment App using Yeoman _ Tyler Henkel&#39;s Portfolio_files/saved_resource"></script><script src="./Building an Angular + Node Comment App using Yeoman _ Tyler Henkel&#39;s Portfolio_files/cb=gapi.loaded_1" async=""></script><script src="./Building an Angular + Node Comment App using Yeoman _ Tyler Henkel&#39;s Portfolio_files/cb=gapi.loaded_0" async=""></script><script async="" src="./Building an Angular + Node Comment App using Yeoman _ Tyler Henkel&#39;s Portfolio_files/analytics.js"></script><script type="text/javascript" async="" src="./Building an Angular + Node Comment App using Yeoman _ Tyler Henkel&#39;s Portfolio_files/plusone.js" gapi_processed="true"></script><script id="facebook-jssdk" src="./Building an Angular + Node Comment App using Yeoman _ Tyler Henkel&#39;s Portfolio_files/sdk.js"></script><script id="twitter-wjs" src="./Building an Angular + Node Comment App using Yeoman _ Tyler Henkel&#39;s Portfolio_files/widgets.js"></script><script type="text/javascript" src="./Building an Angular + Node Comment App using Yeoman _ Tyler Henkel&#39;s Portfolio_files/jquery.js"></script>
+<script type="text/javascript" src="./Building an Angular + Node Comment App using Yeoman _ Tyler Henkel&#39;s Portfolio_files/jquery-migrate.min.js"></script>
+<script type="text/javascript" src="./Building an Angular + Node Comment App using Yeoman _ Tyler Henkel&#39;s Portfolio_files/plugins.js"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var ThemeBrosAjax = {"ajaxurl":"http:\/\/tylerhenkel.com\/wp-admin\/admin-ajax.php"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./Building an Angular + Node Comment App using Yeoman _ Tyler Henkel&#39;s Portfolio_files/ajax.js"></script>
+<script type="text/javascript" src="./Building an Angular + Node Comment App using Yeoman _ Tyler Henkel&#39;s Portfolio_files/custom.js"></script>
+<script type="text/javascript" src="./Building an Angular + Node Comment App using Yeoman _ Tyler Henkel&#39;s Portfolio_files/comment-reply.min.js"></script>
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://tylerhenkel.com/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://tylerhenkel.com/wp-includes/wlwmanifest.xml"> 
+<link rel="prev" title="Angular Fullstack 2.0: Released" href="http://tylerhenkel.com/angular-fullstack-2-0-released/">
+<meta name="generator" content="WordPress 3.6.1">
+<link rel="canonical" href="http://tylerhenkel.com/building-an-angular-node-comment-app-using-yeoman/">
+<link rel="shortlink" href="http://tylerhenkel.com/?p=295">
+	
+<!-- START: Syntax Highlighter ComPress -->
+<script type="text/javascript" src="./Building an Angular + Node Comment App using Yeoman _ Tyler Henkel&#39;s Portfolio_files/shCore.js"></script>
+<script type="text/javascript" src="./Building an Angular + Node Comment App using Yeoman _ Tyler Henkel&#39;s Portfolio_files/shAutoloader.js"></script>
+<link type="text/css" rel="stylesheet" href="./Building an Angular + Node Comment App using Yeoman _ Tyler Henkel&#39;s Portfolio_files/shCoreRDark.css">
+<!-- END: Syntax Highlighter ComPress -->
+
+           <style type="text/css">
+             
+         	body {
+				color: #596064;
+				font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+				font-size: 15px;
+				font-style: normal;
+				font-weight: normal;
+				line-height: 26px;
+			}
+
+			h1, h2, h3, h4, h5, h6 {
+				color: #444444;
+				font-family: inherit;
+				font-style: normal;
+				font-weight: bold;
+			}
+
+			h1 {
+				font-size: 38px;
+				line-height: 1;
+			}
+
+			h2 {
+				font-size: 30px;
+				line-height: 1;
+			}
+
+			h3 {
+				font-size: 25px;
+				line-height: 1.3;
+			}
+
+			h4 {
+				font-size: 20px;
+				line-height: 1.3;
+			}
+
+			h5 {
+				font-size: 18px;
+				line-height: 1.5;
+			}
+
+			h6 {
+				font-size: 16px;
+				line-height: 1.5;
+			}
+
+			#tagline-title {
+				color: #444444;
+				font-size: 36px;
+				font-weight: bold;
+			}
+
+			#tagline-description {
+				color: #a0a0a0;
+				font-size: 20px;
+				font-weight: normal;
+			}
+
+			.home #tagline-title {
+				font-size: 46px;
+			}
+
+			.home #tagline-description {
+				font-size: 25px;
+			}
+
+								#logo {
+  margin-top: 25px;
+}
+
+.profile-img {
+  border-radius: 5px;
+}
+
+.blog-post {
+  font-size: 1.2em;
+  line-height: 1.7em;
+  border-bottom: 3px solid #eee;
+}
+
+.blog-post-excerpt {
+  font-size: 1.1em;
+  line-height: 1.7em;
+  color: #596064;
+}
+
+.light-section {
+  border: 0px;
+  -webkit-box-shadow: 4px 4px 0px 0px #e5e5e5;
+  box-shadow: 4px 4px 0px 0px #e5e5e5;
+}
+
+@import url(http://fonts.googleapis.com/css?family=Open+Sans);
+
+body {
+  font-family: "Open Sans", Helvetica, Arial, "Lucida Grande", sans-serif;
+  color: #333;
+}
+
+#tagline-description {
+  font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+}
+
+.home #tagline-title {
+  font-size: 40px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  letter-spacing: -1px;
+  font-weight: normal;
+  -webkit-text-stroke: 1px rgba(0,0,0,0.1)
+}
+
+#tagline-title {
+  letter-spacing: 0px;
+}
+
+.home #tagline-title {
+  font-size: 35px;
+  line-height: 1.3;
+  letter-spacing: -1px;
+}
+
+/**
+* 10.2 Phones (landscape and portrait)
+*/
+
+@media only screen and (max-width: 767px) {
+  .blog-post-title {
+    font-size: 28px;
+  }
+}
+
+/*
+.wrap {
+    width: 1200px;
+}*/
+
+#tagline {
+    width: auto;
+}
+
+  @media only screen and (min-width: 768px) and (max-width: 959px) { 
+  #tagline {
+    width: 400px;
+  }
+}
+
+.home #nav {
+    margin-top: 25px;
+}
+
+#comments {
+   margin: 0px;
+}
+
+#respond {
+   padding: 20px;
+}
+
+pre, pre.prettyprint {
+  border: 0 solid rgba(102,128,153,0.075);
+  border-left: 10px solid rgba(102,128,153,0.075);
+  border-radius: 0;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  padding: 10px 15px;
+}
+
+pre {
+  font-family: Menlo,Consolas,"Courier New",monospace;
+  font-size: 12px !important;
+}			
+         </style>
+
+         <style type="text/css">
+
+			
+		</style>
+
+    
+<script type="text/javascript" async="" src="./Building an Angular + Node Comment App using Yeoman _ Tyler Henkel&#39;s Portfolio_files/embed.js"></script><script src="./Building an Angular + Node Comment App using Yeoman _ Tyler Henkel&#39;s Portfolio_files/secureAnonymousFramework"></script><script type="text/javascript" charset="utf-8" async="" src="./Building an Angular + Node Comment App using Yeoman _ Tyler Henkel&#39;s Portfolio_files/button.71000885400e222c3c0eec823f8f93f0.js"></script><style type="text/css">* html #li_ui_li_gen_1460382262156_0 a#li_ui_li_gen_1460382262156_0-link{height:1% !important;}#li_ui_li_gen_1460382262156_0{position:relative !important;overflow:visible !important;display:block !important;}#li_ui_li_gen_1460382262156_0 span{-webkit-box-sizing:content-box !important;-moz-box-sizing:content-box !important;box-sizing:content-box !important;}#li_ui_li_gen_1460382262156_0 a#li_ui_li_gen_1460382262156_0-link{border:0 !important;height:20px !important;text-decoration:none !important;padding:0 !important;margin:0 !important;display:inline-block !important;}#li_ui_li_gen_1460382262156_0 a#li_ui_li_gen_1460382262156_0-link:link, #li_ui_li_gen_1460382262156_0 a#li_ui_li_gen_1460382262156_0-link:visited, #li_ui_li_gen_1460382262156_0 a#li_ui_li_gen_1460382262156_0-link:hover, #li_ui_li_gen_1460382262156_0 a#li_ui_li_gen_1460382262156_0-link:active{border:0 !important;text-decoration:none !important;}#li_ui_li_gen_1460382262156_0 a#li_ui_li_gen_1460382262156_0-link:after{content:"." !important;display:block !important;clear:both !important;visibility:hidden !important;line-height:0 !important;height:0 !important;}#li_ui_li_gen_1460382262156_0 #li_ui_li_gen_1460382262156_0-logo{background-image:url(https://static.licdn.com/scds/common/u/images/apps/connect/sprites/sprite_connect_v14.png) !important;background-position:0px -593px !important;background-repeat:no-repeat !important;background-color:#0077b5 !important;background-size:initial !important;cursor:pointer !important;border:0 !important;border-right:1px solid #066094 !important;text-indent:-9999em !important;overflow:hidden !important;padding:0 !important;margin:0 !important;position:absolute !important;left:0px !important;top:0px !important;display:block !important;width:20px !important;height:20px !important;float:right !important;border-radius:2px !important;-webkit-border-radius:2px !important;border-top-right-radius:2px !important;border-bottom-right-radius:2px !important;-webkit-border-top-right-radius:2px !important;-webkit-border-bottom-right-radius:2px !important;}#li_ui_li_gen_1460382262156_0 #li_ui_li_gen_1460382262156_0-title{color:#fff !important;cursor:pointer !important;display:block !important;white-space:nowrap !important;float:left !important;margin-left:1px !important;vertical-align:top !important;overflow:hidden !important;text-align:center !important;height:18px !important;padding:0 4px 0 23px !important;border:1px solid #000 !important;border-top-color:#0077b5 !important;border-right-color:#0077b5 !important;border-bottom-color:#0077b5 !important;border-left-color:#0077b5 !important;text-shadow:0 -1px #005887 !important;line-height:20px !important;border-radius:2px !important;-webkit-border-radius:2px !important;border-top-right-radius:2px !important;border-bottom-right-radius:2px !important;-webkit-border-top-right-radius:2px !important;-webkit-border-bottom-right-radius:2px !important;background-color:#0077b5 !important;background-image:-webkit-gradient(linear, left top, left bottom, color-stop(0%,#0077b5), color-stop(100%,#0077b5)) !important; background-image: -webkit-linear-gradient(top, #0077b5 0%, #0077b5 100%) !important;}#li_ui_li_gen_1460382262156_0.hovered #li_ui_li_gen_1460382262156_0-title{border:1px solid #000 !important;border-top-color:#0369a0 !important;border-right-color:#0369a0 !important;border-bottom-color:#0369a0 !important;border-left-color:#0369a0 !important;background-color:#0369a0 !important;background-image:-webkit-gradient(linear, left top, left bottom, color-stop(0%,#0369a0), color-stop(100%,#0369a0)) !important; background-image: -webkit-linear-gradient(top, #0369a0 0%, #0369a0 100%) !important;}#li_ui_li_gen_1460382262156_0.clicked #li_ui_li_gen_1460382262156_0-title, #li_ui_li_gen_1460382262156_0.down #li_ui_li_gen_1460382262156_0-title{color:#fff !important;border:1px solid #000 !important;border-top-color:#066094 !important;border-right-color:#066094 !important;border-bottom-color:#066094 !important;border-left-color:#066094 !important;background-color:#066094 !important;background-image:-webkit-gradient(linear, left top, left bottom, color-stop(0%,#066094), color-stop(100%,#066094)) !important; background-image: -webkit-linear-gradient(top, #066094 0%, #066094 100%) !important;}.IN-shadowed #li_ui_li_gen_1460382262156_0 #li_ui_li_gen_1460382262156_0-title{}.IN-shadowed #li_ui_li_gen_1460382262156_0.hovered #li_ui_li_gen_1460382262156_0-title{}.IN-shadowed #li_ui_li_gen_1460382262156_0.clicked #li_ui_li_gen_1460382262156_0-title, .IN-shadowed #li_ui_li_gen_1460382262156_0.down #li_ui_li_gen_1460382262156_0-title{}#li_ui_li_gen_1460382262156_0 #li_ui_li_gen_1460382262156_0-title-text, #li_ui_li_gen_1460382262156_0 #li_ui_li_gen_1460382262156_0-title-text *{color:#fff !important;font-size:11px !important;font-family:Arial, sans-serif !important;font-weight:bold !important;font-style:normal !important;-webkit-font-smoothing:antialiased !important;display:inline-block !important;background:transparent none !important;vertical-align:top !important;height:18px !important;line-height:20px !important;float:none !important;}#li_ui_li_gen_1460382262156_0 #li_ui_li_gen_1460382262156_0-title-text strong{font-weight:bold !important;}#li_ui_li_gen_1460382262156_0 #li_ui_li_gen_1460382262156_0-title-text em{font-style:italic !important;}#li_ui_li_gen_1460382262156_0.hovered #li_ui_li_gen_1460382262156_0-title-text, #li_ui_li_gen_1460382262156_0.hovered #li_ui_li_gen_1460382262156_0-title-text *{color:#fff !important;}#li_ui_li_gen_1460382262156_0.clicked #li_ui_li_gen_1460382262156_0-title-text, #li_ui_li_gen_1460382262156_0.down #li_ui_li_gen_1460382262156_0-title-text, #li_ui_li_gen_1460382262156_0.clicked #li_ui_li_gen_1460382262156_0-title-text *, #li_ui_li_gen_1460382262156_0.down #li_ui_li_gen_1460382262156_0-title-text *{color:#fff !important;}#li_ui_li_gen_1460382262156_0 #li_ui_li_gen_1460382262156_0-title #li_ui_li_gen_1460382262156_0-mark{display:inline-block !important;width:0px !important;overflow:hidden !important;}.success #li_ui_li_gen_1460382262156_0 #li_ui_li_gen_1460382262156_0-title{color:#fff !important;border-top-color:#0077b5 !important;border-right-color:#0077b5 !important;border-bottom-color:#0077b5 !important;border-left-color:#0077b5 !important;background-color:#0077b5 !important;background-image:-webkit-gradient(linear, left top, left bottom, color-stop(0%,#0077b5), color-stop(100%,#0077b5)) !important; background-image: -webkit-linear-gradient(top, #0077b5 0%, #0077b5 100%) !important;}.success #li_ui_li_gen_1460382262156_0 #li_ui_li_gen_1460382262156_0-title-text, .success #li_ui_li_gen_1460382262156_0 #li_ui_li_gen_1460382262156_0-title-text *{color:#fff !important;}.IN-shadowed .success #li_ui_li_gen_1460382262156_0 #li_ui_li_gen_1460382262156_0-title{}.success #li_ui_li_gen_1460382262156_0.hovered #li_ui_li_gen_1460382262156_0-title{color:#fff !important;border-top-color:#0369a0 !important;border-right-color:#0369a0 !important;border-bottom-color:#0369a0 !important;border-left-color:#0369a0 !important;background-color:#0369a0 !important;background-image:-webkit-gradient(linear, left top, left bottom, color-stop(0%,#0369a0), color-stop(100%,#0369a0)) !important; background-image: -webkit-linear-gradient(top, #0369a0 0%, #0369a0 100%) !important;}.success #li_ui_li_gen_1460382262156_0.hovered #li_ui_li_gen_1460382262156_0-title-text, .success #li_ui_li_gen_1460382262156_0.hovered #li_ui_li_gen_1460382262156_0-title-text *{color:#fff !important;}.success #li_ui_li_gen_1460382262156_0.clicked #li_ui_li_gen_1460382262156_0-title, .success #li_ui_li_gen_1460382262156_0.down #li_ui_li_gen_1460382262156_0-title{color:#fff !important;border-top-color:#066094 !important;border-right-color:#066094 !important;border-bottom-color:#066094 !important;border-left-color:#066094 !important;background-color:#066094 !important;background-image:-webkit-gradient(linear, left top, left bottom, color-stop(0%,#066094), color-stop(100%,#066094)) !important; background-image: -webkit-linear-gradient(top, #066094 0%, #066094 100%) !important;}.success #li_ui_li_gen_1460382262156_0.clicked #li_ui_li_gen_1460382262156_0-title-text, .success #li_ui_li_gen_1460382262156_0.down #li_ui_li_gen_1460382262156_0-title-text, .success #li_ui_li_gen_1460382262156_0.clicked #li_ui_li_gen_1460382262156_0-title-text *, .success #li_ui_li_gen_1460382262156_0.down #li_ui_li_gen_1460382262156_0-title-text *{color:#fff !important;}.IN-shadowed .success #li_ui_li_gen_1460382262156_0.clicked #li_ui_li_gen_1460382262156_0-title, .IN-shadowed .success #li_ui_li_gen_1460382262156_0.down #li_ui_li_gen_1460382262156_0-title{}#li_ui_li_gen_1460382262170_1-container.IN-right {display:inline-block !important;float:left !important;overflow:visible !important;position:relative !important;height:20px !important;padding-left:2px !important;line-height:1px !important;cursor:pointer !important;}#li_ui_li_gen_1460382262170_1.IN-right {display:block !important;float:left !important;height:20px !important;margin-right:4px !important;padding-right:4px !important;background-image:url(https://static.licdn.com/scds/common/u/images/apps/connect/sprites/sprite_connect_v14.png) !important;background-color:transparent !important;background-repeat:no-repeat !important;background-position:right -447px !important;}#li_ui_li_gen_1460382262170_1-inner.IN-right {display:block !important;float:left !important;padding-left:8px !important;text-align:center !important;background-image:url(https://static.licdn.com/scds/common/u/images/apps/connect/sprites/sprite_connect_v14.png) !important;background-color:transparent !important;background-repeat:no-repeat !important;background-position:0px -426px !important;}#li_ui_li_gen_1460382262170_1-content.IN-right {display:inline !important;font-size:11px !important;color:#4e4e4e !important;font-weight:bold !important;font-family:Arial, sans-serif !important;line-height:20px !important;padding:0 5px 0 5px !important;}#li_ui_li_gen_1460382262170_1-container.IN-empty {display:none !important;}#li_ui_li_gen_1460382262170_1-container.IN-hidden #li_ui_li_gen_1460382262170_1 {display:none !important;}</style><style type="text/css">.fb_hidden{position:absolute;top:-10000px;z-index:10001}.fb_reposition{overflow:hidden;position:relative}.fb_invisible{display:none}.fb_reset{background:none;border:0;border-spacing:0;color:#000;cursor:auto;direction:ltr;font-family:"lucida grande", tahoma, verdana, arial, sans-serif;font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;letter-spacing:normal;line-height:1;margin:0;overflow:visible;padding:0;text-align:left;text-decoration:none;text-indent:0;text-shadow:none;text-transform:none;visibility:visible;white-space:normal;word-spacing:normal}.fb_reset>div{overflow:hidden}.fb_link img{border:none}@keyframes fb_transform{from{opacity:0;transform:scale(.95)}to{opacity:1;transform:scale(1)}}.fb_animate{animation:fb_transform .3s forwards}
+.fb_dialog{background:rgba(82, 82, 82, .7);position:absolute;top:-10000px;z-index:10001}.fb_reset .fb_dialog_legacy{overflow:visible}.fb_dialog_advanced{padding:10px;-moz-border-radius:8px;-webkit-border-radius:8px;border-radius:8px}.fb_dialog_content{background:#fff;color:#333}.fb_dialog_close_icon{background:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 0 transparent;_background-image:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/yL/r/s816eWC-2sl.gif);cursor:pointer;display:block;height:15px;position:absolute;right:18px;top:17px;width:15px}.fb_dialog_mobile .fb_dialog_close_icon{top:5px;left:5px;right:auto}.fb_dialog_padding{background-color:transparent;position:absolute;width:1px;z-index:-1}.fb_dialog_close_icon:hover{background:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -15px transparent;_background-image:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/yL/r/s816eWC-2sl.gif)}.fb_dialog_close_icon:active{background:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -30px transparent;_background-image:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/yL/r/s816eWC-2sl.gif)}.fb_dialog_loader{background-color:#f6f7f8;border:1px solid #606060;font-size:24px;padding:20px}.fb_dialog_top_left,.fb_dialog_top_right,.fb_dialog_bottom_left,.fb_dialog_bottom_right{height:10px;width:10px;overflow:hidden;position:absolute}.fb_dialog_top_left{background:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/ye/r/8YeTNIlTZjm.png) no-repeat 0 0;left:-10px;top:-10px}.fb_dialog_top_right{background:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/ye/r/8YeTNIlTZjm.png) no-repeat 0 -10px;right:-10px;top:-10px}.fb_dialog_bottom_left{background:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/ye/r/8YeTNIlTZjm.png) no-repeat 0 -20px;bottom:-10px;left:-10px}.fb_dialog_bottom_right{background:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/ye/r/8YeTNIlTZjm.png) no-repeat 0 -30px;right:-10px;bottom:-10px}.fb_dialog_vert_left,.fb_dialog_vert_right,.fb_dialog_horiz_top,.fb_dialog_horiz_bottom{position:absolute;background:#525252;filter:alpha(opacity=70);opacity:.7}.fb_dialog_vert_left,.fb_dialog_vert_right{width:10px;height:100%}.fb_dialog_vert_left{margin-left:-10px}.fb_dialog_vert_right{right:0;margin-right:-10px}.fb_dialog_horiz_top,.fb_dialog_horiz_bottom{width:100%;height:10px}.fb_dialog_horiz_top{margin-top:-10px}.fb_dialog_horiz_bottom{bottom:0;margin-bottom:-10px}.fb_dialog_iframe{line-height:0}.fb_dialog_content .dialog_title{background:#6d84b4;border:1px solid #3a5795;color:#fff;font-size:14px;font-weight:bold;margin:0}.fb_dialog_content .dialog_title>span{background:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/yd/r/Cou7n-nqK52.gif) no-repeat 5px 50%;float:left;padding:5px 0 7px 26px}body.fb_hidden{-webkit-transform:none;height:100%;margin:0;overflow:visible;position:absolute;top:-10000px;left:0;width:100%}.fb_dialog.fb_dialog_mobile.loading{background:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/ya/r/3rhSv5V8j3o.gif) white no-repeat 50% 50%;min-height:100%;min-width:100%;overflow:hidden;position:absolute;top:0;z-index:10001}.fb_dialog.fb_dialog_mobile.loading.centered{width:auto;height:auto;min-height:initial;min-width:initial;background:none}.fb_dialog.fb_dialog_mobile.loading.centered #fb_dialog_loader_spinner{width:100%}.fb_dialog.fb_dialog_mobile.loading.centered .fb_dialog_content{background:none}.loading.centered #fb_dialog_loader_close{color:#fff;display:block;padding-top:20px;clear:both;font-size:18px}#fb-root #fb_dialog_ipad_overlay{background:rgba(0, 0, 0, .45);position:absolute;bottom:0;left:0;right:0;top:0;width:100%;min-height:100%;z-index:10000}#fb-root #fb_dialog_ipad_overlay.hidden{display:none}.fb_dialog.fb_dialog_mobile.loading iframe{visibility:hidden}.fb_dialog_content .dialog_header{-webkit-box-shadow:white 0 1px 1px -1px inset;background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#738ABA), to(#2C4987));border-bottom:1px solid;border-color:#1d4088;color:#fff;font:14px Helvetica, sans-serif;font-weight:bold;text-overflow:ellipsis;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0;vertical-align:middle;white-space:nowrap}.fb_dialog_content .dialog_header table{-webkit-font-smoothing:subpixel-antialiased;height:43px;width:100%}.fb_dialog_content .dialog_header td.header_left{font-size:12px;padding-left:5px;vertical-align:middle;width:60px}.fb_dialog_content .dialog_header td.header_right{font-size:12px;padding-right:5px;vertical-align:middle;width:60px}.fb_dialog_content .touchable_button{background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#4966A6), color-stop(.5, #355492), to(#2A4887));border:1px solid #2f477a;-webkit-background-clip:padding-box;-webkit-border-radius:3px;-webkit-box-shadow:rgba(0, 0, 0, .117188) 0 1px 1px inset, rgba(255, 255, 255, .167969) 0 1px 0;display:inline-block;margin-top:3px;max-width:85px;line-height:18px;padding:4px 12px;position:relative}.fb_dialog_content .dialog_header .touchable_button input{border:none;background:none;color:#fff;font:12px Helvetica, sans-serif;font-weight:bold;margin:2px -12px;padding:2px 6px 3px 6px;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}.fb_dialog_content .dialog_header .header_center{color:#fff;font-size:16px;font-weight:bold;line-height:18px;text-align:center;vertical-align:middle}.fb_dialog_content .dialog_content{background:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/y9/r/jKEcVPZFk-2.gif) no-repeat 50% 50%;border:1px solid #555;border-bottom:0;border-top:0;height:150px}.fb_dialog_content .dialog_footer{background:#f6f7f8;border:1px solid #555;border-top-color:#ccc;height:40px}#fb_dialog_loader_close{float:left}.fb_dialog.fb_dialog_mobile .fb_dialog_close_button{text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}.fb_dialog.fb_dialog_mobile .fb_dialog_close_icon{visibility:hidden}#fb_dialog_loader_spinner{animation:rotateSpinner 1.2s linear infinite;background-color:transparent;background-image:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/yD/r/t-wz8gw1xG1.png);background-repeat:no-repeat;background-position:50% 50%;height:24px;width:24px}@keyframes rotateSpinner{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
+.fb_iframe_widget{display:inline-block;position:relative}.fb_iframe_widget span{display:inline-block;position:relative;text-align:justify}.fb_iframe_widget iframe{position:absolute}.fb_iframe_widget_fluid_desktop,.fb_iframe_widget_fluid_desktop span,.fb_iframe_widget_fluid_desktop iframe{max-width:100%}.fb_iframe_widget_fluid_desktop iframe{min-width:220px;position:relative}.fb_iframe_widget_lift{z-index:1}.fb_hide_iframes iframe{position:relative;left:-10000px}.fb_iframe_widget_loader{position:relative;display:inline-block}.fb_iframe_widget_fluid{display:inline}.fb_iframe_widget_fluid span{width:100%}.fb_iframe_widget_loader iframe{min-height:32px;z-index:2;zoom:1}.fb_iframe_widget_loader .FB_Loader{background:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/y9/r/jKEcVPZFk-2.gif) no-repeat;height:32px;width:32px;margin-left:-16px;position:absolute;left:50%;z-index:4}</style><script src="./Building an Angular + Node Comment App using Yeoman _ Tyler Henkel&#39;s Portfolio_files/alfie.f51946af45e0b561c60f768335c9eb79.js" async="" charset="UTF-8"></script></head>
+
+
+<body class="single single-post postid-295 single-format-standard  homepage-project-ajax-enabled portfolio-posts-ajax-disabled portfolio-posts-filter-style-animated homepage-projects-filter-style-transparent">
+	
+	<div id="container">
+
+		
+		<div id="header">
+
+			<div class="wrap clearfix">
+
+				<div id="logo">
+					<a href="http://tylerhenkel.com/" title="Tyler Henkel&#39;s Portfolio" rel="home" class="">						
+						<img src="./Building an Angular + Node Comment App using Yeoman _ Tyler Henkel&#39;s Portfolio_files/brand1.png" alt="Tyler Henkel&#39;s Portfolio">
+					</a>
+				</div><!-- #logo -->
+
+				<div id="tagline">
+											<h2 id="tagline-title">Tyler Henkel</h2>
+						<h3 id="tagline-description">Web Designer and Front-End Developer</h3>
+									</div><!-- #tagline -->
+
+				<div id="nav">
+					<div class="menu-primary-menu-container"><ul id="menu-primary-menu" class="nav-menu sf-menu sf-js-enabled sf-shadow"><li id="menu-item-72" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-72"><a href="http://tylerhenkel.com/portfolio/">Projects</a></li>
+<li id="menu-item-80" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-80"><a href="http://tylerhenkel.com/blog/">Blog</a></li>
+</ul></div>				</div><!-- #nav -->
+
+				<div id="mobile-navigation-container" class="clear">
+				
+					<div id="mobile-navigation">
+					
+						<select><option value="#">Navigate to...</option><option value="http://tylerhenkel.com/portfolio/">Projects</option><option value="http://tylerhenkel.com/blog/">Blog</option></select>					
+					</div>
+						
+				</div><!-- #mobile-navigation-container -->
+
+			</div><!-- .wrap -->
+
+		</div><!-- #header -->
+
+		<div id="main">		
+	<div class="wrap">
+
+		<div id="content" class="clearfix">
+						
+			<div class="light-section">
+				
+				<div class="blog-posts">
+
+						
+
+
+<article id="post-295" class="post-295 post type-post status-publish format-standard hentry category-uncategorized blog-post">
+
+
+
+	
+
+
+	
+		
+
+		
+			<h1 class="blog-post-title">Building an Angular + Node Comment App using Yeoman</h1>
+
+		
+
+
+	
+
+
+	
+
+
+		<div class="blog-post-info">
+
+			<ul>
+
+				<li><a href="http://tylerhenkel.com/2014/07/06/">July 6, 2014</a></li>
+
+			</ul>
+
+
+
+		</div><!-- .blog-post-info -->
+
+
+
+	
+
+
+	
+
+
+		<div class="blog-post-content clearfix">
+
+
+
+			<p>For this tutorial we will be building a simple youtube-style comment box, with the help of the Angular Full-Stack generator. </p>
+<p>What it should do:</p>
+<ul>
+<li>It will require you to be logged in to post comments</li>
+<li>It will show the name of user who posted the comment</li>
+<li>It will update comments in real time as they come in</li>
+</ul>
+<p>Heres the <a href="http://angular-tube.herokuapp.com/">demo</a>.</p>
+<h3>Prerequisites</h3>
+<ul>
+<li>MongoDB – Download and Install <a href="http://docs.mongodb.org/manual/installation/">MongoDB</a> – Make sure <code>mongod</code> is running.</li>
+</ul>
+<h3>Getting Started</h3>
+<p>First we’ll download and install generator-angular-fullstack.</p>
+<div><div id="highlighter_63073" class="syntaxhighlighter nogutter  bash"><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="bash plain">npm </code><code class="bash functions">install</code> <code class="bash plain">-g generator-angular-fullstack</code></div></div></td></tr></tbody></table></div></div>
+<p>We’ll run the generator and use all the defaults, except we’ll be using Less instead of Sass.</p>
+<div><div id="highlighter_520006" class="syntaxhighlighter nogutter  bash"><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="bash functions">mkdir</code> <code class="bash plain">angular-tube</code></div><div class="line number2 index1 alt1"><code class="bash functions">cd</code> <code class="bash plain">angular-tube</code></div><div class="line number3 index2 alt2"><code class="bash plain">yo angular-fullstack</code></div></div></td></tr></tbody></table></div></div>
+<p>If everything installed correctly, running <code>grunt serve</code> should start the generated app with a welcome screen. We can leave this terminal open to keep our server alive while we edit it.</p>
+<p>Create a new terminal and cd into the project folder for running additional generators.</p>
+<h3 id="the-project-structure">The project structure</h3>
+<p>Lets take a moment to look at the project so far so we have a good idea where everything is.</p>
+<pre>├── client
+│&nbsp;&nbsp; ├── app                 - All of our app specific components go in here
+│&nbsp;&nbsp; ├── assets              - Custom assets: fonts, images, etc… 
+│&nbsp;&nbsp; ├── components          - Our reusable components, non-specific to to our app
+│ 
+├── e2e                     - Our protractor end to end tests
+│
+└── server
+    ├── api                 - Our apps server api
+    ├── auth                - For handling authentication with different auth strategies
+    ├── components          - Our reusable or app-wide components
+    ├── config              - Where we do the bulk of our apps configuration
+    │   └── local.env.js    - Keep our environment variables out of source control.
+    │&nbsp;&nbsp; └── environment     - Configuration specific to the environment the server is being run in
+    └── views               - Server rendered views</pre>
+<p>Thats an overview of the structure, lets drill down little on a client component.</p>
+<pre>main
+├── main.controller.js      - Controller for our main route
+├── main.controller.spec.js - Our test
+├── main.html               - Our view
+├── main.js                 - Registers the route
+└── main.less               - Our styles</pre>
+<p>This structure allows for quite a bit of modularity, but it groups things together logically, so you have an easier time working on a component, and an easier time extracting it out into another project later.</p>
+<h3 id="setting-up-our-main-route">Setting up our main route</h3>
+<p>Ok so now that we have our project setup, its time to start tearing down the stuff we don’t need.</p>
+<p>Lets disable seeding of the database first:</p>
+<div><div id="highlighter_179395" class="syntaxhighlighter nogutter  javascript"><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="javascript comments">// server/config/environment/development.js</code></div><div class="line number2 index1 alt1"><code class="javascript plain">...</code></div><div class="line number3 index2 alt2">&nbsp;</div><div class="line number4 index3 alt1"><code class="javascript plain">seedDB: </code><code class="javascript keyword">false</code><code class="javascript plain">,</code></div><div class="line number5 index4 alt2">&nbsp;</div><div class="line number6 index5 alt1"><code class="javascript plain">...</code></div></div></td></tr></tbody></table></div></div>
+<p>Delete the <code>client/app/main</code> folder, we’ll generate our own, and when prompted set the url to <code>/</code>:</p>
+<div><div id="highlighter_742028" class="syntaxhighlighter nogutter  bash"><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="bash plain">yo angular-fullstack:route main</code></div><div class="line number2 index1 alt1"><code class="bash plain">[?] Where would you like to create this route? client</code><code class="bash plain">/app/</code></div><div class="line number3 index2 alt2"><code class="bash plain">[?] What will the url of your route be? (</code><code class="bash plain">/main</code><code class="bash plain">) /</code></div></div></td></tr></tbody></table></div></div>
+<p>And we’ll add the markup for our comment form to the main view:</p>
+<div><div id="highlighter_425973" class="syntaxhighlighter nogutter  html"><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="html comments">&lt;!-- client/app/main/main.html --&gt;</code></div><div class="line number2 index1 alt1">&nbsp;</div><div class="line number3 index2 alt2"><code class="html plain">&lt;</code><code class="html keyword">div</code> <code class="html color1">ng-include</code><code class="html plain">=</code><code class="html string">"'components/navbar/navbar.html'"</code><code class="html plain">&gt;&lt;/</code><code class="html keyword">div</code><code class="html plain">&gt;</code></div><div class="line number4 index3 alt1">&nbsp;</div><div class="line number5 index4 alt2"><code class="html plain">&lt;</code><code class="html keyword">div</code> <code class="html color1">class</code><code class="html plain">=</code><code class="html string">"container"</code><code class="html plain">&gt;</code></div><div class="line number6 index5 alt1"><code class="html spaces">&nbsp;&nbsp;</code><code class="html plain">&lt;</code><code class="html keyword">iframe</code> <code class="html color1">width</code><code class="html plain">=</code><code class="html string">"100%"</code> <code class="html color1">height</code><code class="html plain">=</code><code class="html string">"410"</code> <code class="html color1">src</code><code class="html plain">=</code><code class="html string">"//www.youtube.com/embed/DcJFdCmN98s"</code> <code class="html color1">frameborder</code><code class="html plain">=</code><code class="html string">"0"</code><code class="html plain">&gt;&lt;/</code><code class="html keyword">iframe</code><code class="html plain">&gt;</code></div><div class="line number7 index6 alt2">&nbsp;</div><div class="line number8 index7 alt1"><code class="html spaces">&nbsp;&nbsp;</code><code class="html plain">&lt;</code><code class="html keyword">form</code> <code class="html color1">class</code><code class="html plain">=</code><code class="html string">"comment-form"</code> <code class="html color1">ng-submit</code><code class="html plain">=</code><code class="html string">"addComment()"</code> <code class="html color1">name</code><code class="html plain">=</code><code class="html string">"commentForm"</code><code class="html plain">&gt;</code></div><div class="line number9 index8 alt2"><code class="html spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="html plain">&lt;</code><code class="html keyword">textarea</code> <code class="html color1">class</code><code class="html plain">=</code><code class="html string">"form-control"</code> <code class="html color1">ng-model</code><code class="html plain">=</code><code class="html string">"newComment"</code> <code class="html color1">rows</code><code class="html plain">=</code><code class="html string">"3"</code> <code class="html color1">placeholder</code><code class="html plain">=</code><code class="html string">"Enter a new comment"</code> <code class="html plain">required&gt;&lt;/</code><code class="html keyword">textarea</code><code class="html plain">&gt;</code></div><div class="line number10 index9 alt1"><code class="html spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="html plain">&lt;</code><code class="html keyword">input</code> <code class="html color1">class</code><code class="html plain">=</code><code class="html string">"btn btn-primary"</code> <code class="html color1">type</code><code class="html plain">=</code><code class="html string">"submit"</code> <code class="html color1">ng-disabled</code><code class="html plain">=</code><code class="html string">"commentForm.$invalid"</code> <code class="html color1">value</code><code class="html plain">=</code><code class="html string">"Post"</code><code class="html plain">&gt;</code></div><div class="line number11 index10 alt2"><code class="html spaces">&nbsp;&nbsp;</code><code class="html plain">&lt;/</code><code class="html keyword">form</code><code class="html plain">&gt;</code></div><div class="line number12 index11 alt1">&nbsp;</div><div class="line number13 index12 alt2"><code class="html spaces">&nbsp;&nbsp;</code><code class="html plain">&lt;</code><code class="html keyword">ul</code> <code class="html color1">class</code><code class="html plain">=</code><code class="html string">"comment-list"</code><code class="html plain">&gt;</code></div><div class="line number14 index13 alt1"><code class="html spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="html plain">&lt;</code><code class="html keyword">li</code> <code class="html color1">ng-repeat</code><code class="html plain">=</code><code class="html string">"comment in comments"</code><code class="html plain">&gt;</code></div><div class="line number15 index14 alt2"><code class="html spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="html plain">&lt;</code><code class="html keyword">header</code><code class="html plain">&gt;{{ comment.author.name }}&lt;/</code><code class="html keyword">header</code><code class="html plain">&gt;</code></div><div class="line number16 index15 alt1"><code class="html spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="html plain">&lt;</code><code class="html keyword">p</code><code class="html plain">&gt;{{ comment.content }}&lt;/</code><code class="html keyword">p</code><code class="html plain">&gt;</code></div><div class="line number17 index16 alt2"><code class="html spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="html plain">&lt;/</code><code class="html keyword">li</code><code class="html plain">&gt;</code></div><div class="line number18 index17 alt1"><code class="html spaces">&nbsp;&nbsp;</code><code class="html plain">&lt;/</code><code class="html keyword">ul</code><code class="html plain">&gt;</code></div><div class="line number19 index18 alt2"><code class="html plain">&lt;/</code><code class="html keyword">div</code><code class="html plain">&gt;</code></div></div></td></tr></tbody></table></div></div>
+<p>If you’re familiar with Angular, this should be pretty self-explanatory. Its just a form for submitting comments, and an ng-repeat for displaying them.</p>
+<p>We’ll also add a few styles to our routes <code>less</code> file to make it a little more pleasant to look at:</p>
+<div><div id="highlighter_537998" class="syntaxhighlighter nogutter  css"><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="css comments">/* client/app/main/main.less */</code></div><div class="line number2 index1 alt1">&nbsp;</div><div class="line number3 index2 alt2"><code class="css plain">.comment-form {</code></div><div class="line number4 index3 alt1"><code class="css spaces">&nbsp;&nbsp;</code><code class="css plain">.clearfix();</code></div><div class="line number5 index4 alt2">&nbsp;</div><div class="line number6 index5 alt1"><code class="css spaces">&nbsp;&nbsp;</code><code class="css plain">.btn-primary {</code></div><div class="line number7 index6 alt2"><code class="css spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="css keyword">margin-top</code><code class="css plain">: </code><code class="css value">7px</code><code class="css plain">;</code></div><div class="line number8 index7 alt1"><code class="css spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="css keyword">float</code><code class="css plain">: </code><code class="css value">right</code><code class="css plain">;</code></div><div class="line number9 index8 alt2"><code class="css spaces">&nbsp;&nbsp;</code><code class="css plain">}</code></div><div class="line number10 index9 alt1"><code class="css plain">}</code></div><div class="line number11 index10 alt2">&nbsp;</div><div class="line number12 index11 alt1"><code class="css plain">.comment-list {</code></div><div class="line number13 index12 alt2"><code class="css spaces">&nbsp;&nbsp;</code><code class="css keyword">padding</code><code class="css plain">:</code><code class="css value">0</code><code class="css plain">;</code></div><div class="line number14 index13 alt1"><code class="css spaces">&nbsp;&nbsp;</code><code class="css keyword">list-style</code><code class="css plain">:</code><code class="css value">none</code><code class="css plain">;</code></div><div class="line number15 index14 alt2">&nbsp;</div><div class="line number16 index15 alt1"><code class="css spaces">&nbsp;&nbsp;</code><code class="css plain">header {</code></div><div class="line number17 index16 alt2"><code class="css spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="css keyword">font-size</code><code class="css plain">: </code><code class="css value">16px</code><code class="css plain">;</code></div><div class="line number18 index17 alt1"><code class="css spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="css keyword">font-weight</code><code class="css plain">: </code><code class="css value">bold</code><code class="css plain">;</code></div><div class="line number19 index18 alt2"><code class="css spaces">&nbsp;&nbsp;</code><code class="css plain">}</code></div><div class="line number20 index19 alt1"><code class="css spaces">&nbsp;&nbsp;</code><code class="css plain">li {</code></div><div class="line number21 index20 alt2"><code class="css spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="css plain">.clearfix();</code></div><div class="line number22 index21 alt1"><code class="css spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="css keyword">margin</code><code class="css plain">: </code><code class="css value">7px</code> <code class="css value">0</code><code class="css plain">;</code></div><div class="line number23 index22 alt2"><code class="css spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="css keyword">padding</code><code class="css plain">: </code><code class="css value">5px</code><code class="css plain">;</code></div><div class="line number24 index23 alt1"><code class="css spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="css keyword">border</code><code class="css plain">: </code><code class="css value">1px</code> <code class="css value">solid</code> <code class="css value">#ddd</code><code class="css plain">;</code></div><div class="line number25 index24 alt2"><code class="css spaces">&nbsp;&nbsp;</code><code class="css plain">}</code></div><div class="line number26 index25 alt1"><code class="css plain">}</code></div></div></td></tr></tbody></table></div></div>
+<p>The view for our comment box is done. Now lets start working on the server side.</p>
+<h3 id="creating-our-api-endpoint">Creating our API endpoint</h3>
+<p>We’ll generate our comments endpoint using the endpoint generator:</p>
+<div><div id="highlighter_460164" class="syntaxhighlighter nogutter  bash"><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="bash plain">yo angular-fullstack:endpoint comment</code></div><div class="line number2 index1 alt1"><code class="bash plain">[?] What will the url of your endpoint to be? </code><code class="bash plain">/api/comments</code></div></div></td></tr></tbody></table></div></div>
+<p>The endpoint that generates should be accessible now. If you navigate your browser to <code>localhost:9000/api/comments</code>, you should see an empty array as the response.</p>
+<h3 id="setting-up-our-comment-model">Setting up our comment model</h3>
+<p>Open the newly generated model and create the following Schema.</p>
+<div><div id="highlighter_78464" class="syntaxhighlighter nogutter  javascript"><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="javascript comments">// server/api/comment/comment.model.js</code></div><div class="line number2 index1 alt1"><code class="javascript string">'use strict'</code><code class="javascript plain">;</code></div><div class="line number3 index2 alt2">&nbsp;</div><div class="line number4 index3 alt1"><code class="javascript keyword">var</code> <code class="javascript plain">mongoose = require(</code><code class="javascript string">'mongoose'</code><code class="javascript plain">),</code></div><div class="line number5 index4 alt2"><code class="javascript spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="javascript plain">Schema = mongoose.Schema;</code></div><div class="line number6 index5 alt1">&nbsp;</div><div class="line number7 index6 alt2"><code class="javascript keyword">var</code> <code class="javascript plain">CommentSchema = </code><code class="javascript keyword">new</code> <code class="javascript plain">Schema({</code></div><div class="line number8 index7 alt1"><code class="javascript spaces">&nbsp;&nbsp;</code><code class="javascript plain">content: String,</code></div><div class="line number9 index8 alt2"><code class="javascript spaces">&nbsp;&nbsp;</code><code class="javascript plain">date: { type: Date, </code><code class="javascript keyword">default</code><code class="javascript plain">: Date.now },</code></div><div class="line number10 index9 alt1"><code class="javascript spaces">&nbsp;&nbsp;</code><code class="javascript plain">author: {</code></div><div class="line number11 index10 alt2"><code class="javascript spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="javascript plain">type: Schema.Types.ObjectId,</code></div><div class="line number12 index11 alt1"><code class="javascript spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="javascript plain">ref: </code><code class="javascript string">'User'</code></div><div class="line number13 index12 alt2"><code class="javascript spaces">&nbsp;&nbsp;</code><code class="javascript plain">}</code></div><div class="line number14 index13 alt1"><code class="javascript plain">});</code></div><div class="line number15 index14 alt2">&nbsp;</div><div class="line number16 index15 alt1"><code class="javascript plain">CommentSchema.statics = {</code></div><div class="line number17 index16 alt2"><code class="javascript spaces">&nbsp;&nbsp;</code><code class="javascript plain">loadRecent: </code><code class="javascript keyword">function</code><code class="javascript plain">(cb) {</code></div><div class="line number18 index17 alt1"><code class="javascript spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="javascript keyword">this</code><code class="javascript plain">.find({})</code></div><div class="line number19 index18 alt2"><code class="javascript spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="javascript plain">.populate({path:</code><code class="javascript string">'author'</code><code class="javascript plain">, select: </code><code class="javascript string">'name'</code><code class="javascript plain">})</code></div><div class="line number20 index19 alt1"><code class="javascript spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="javascript plain">.sort(</code><code class="javascript string">'-date'</code><code class="javascript plain">)</code></div><div class="line number21 index20 alt2"><code class="javascript spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="javascript plain">.limit(20)</code></div><div class="line number22 index21 alt1"><code class="javascript spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="javascript plain">.exec(cb);</code></div><div class="line number23 index22 alt2"><code class="javascript spaces">&nbsp;&nbsp;</code><code class="javascript plain">}</code></div><div class="line number24 index23 alt1"><code class="javascript plain">};</code></div><div class="line number25 index24 alt2">&nbsp;</div><div class="line number26 index25 alt1"><code class="javascript plain">module.exports = mongoose.model(</code><code class="javascript string">'Comment'</code><code class="javascript plain">, CommentSchema);</code></div></div></td></tr></tbody></table></div></div>
+<p>We’re using mongoose to setup a schema for our documents before they’re saved to the database.<br>
+For our comments, we need a content field for the message, a date field for when the comment was created, and an author field – which will hold the id of the user that created the comment.</p>
+<p>We also can setup static methods that will help us define some custom actions on our model. In this case, we setup a static method for loading the 20 most recent comments. It will populate the comments with the name of the user, based on the comments author id, this is similar to a join in sql.</p>
+<h3 id="comment-routes">Comment routes</h3>
+<p>Because posting a comment requires a user, lets setup routing to only allow logged in users to add comments.</p>
+<div><div id="highlighter_947879" class="syntaxhighlighter nogutter  javascript"><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="javascript comments">// server/api/comment/index.js</code></div><div class="line number2 index1 alt1"><code class="javascript string">'use strict'</code><code class="javascript plain">;</code></div><div class="line number3 index2 alt2">&nbsp;</div><div class="line number4 index3 alt1"><code class="javascript keyword">var</code> <code class="javascript plain">express = require(</code><code class="javascript string">'express'</code><code class="javascript plain">);</code></div><div class="line number5 index4 alt2"><code class="javascript keyword">var</code> <code class="javascript plain">controller = require(</code><code class="javascript string">'./comment.controller'</code><code class="javascript plain">);</code></div><div class="line number6 index5 alt1"><code class="javascript keyword">var</code> <code class="javascript plain">auth = require(</code><code class="javascript string">'../../auth/auth.service'</code><code class="javascript plain">);</code></div><div class="line number7 index6 alt2">&nbsp;</div><div class="line number8 index7 alt1"><code class="javascript keyword">var</code> <code class="javascript plain">router = express.Router();</code></div><div class="line number9 index8 alt2"><code class="javascript spaces">&nbsp;</code>&nbsp;</div><div class="line number10 index9 alt1"><code class="javascript plain">router.get(</code><code class="javascript string">'/'</code><code class="javascript plain">, controller.index);</code></div><div class="line number11 index10 alt2"><code class="javascript plain">router.post(</code><code class="javascript string">'/'</code><code class="javascript plain">, auth.isAuthenticated(), controller.create);</code></div><div class="line number12 index11 alt1"><code class="javascript plain">router.</code><code class="javascript keyword">delete</code><code class="javascript plain">(</code><code class="javascript string">'/:id'</code><code class="javascript plain">, auth.isAuthenticated(), controller.destroy);</code></div><div class="line number13 index12 alt2">&nbsp;</div><div class="line number14 index13 alt1"><code class="javascript plain">module.exports = router;</code></div></div></td></tr></tbody></table></div></div>
+<p>The isAuthenticated method allows us to restrict routes to only users who are logged in. It also attaches the authenticated user to <code>req.user</code>, which we will use in our controller.</p>
+<h3 id="comment-controller">Comment controller</h3>
+<p>Our comment controller is where we handle the request and response for our endpoint. We want to use the loadRecent method, that we just added to the model, to find the recent comments populated with the authors information, and return that as the response. We also want to save the authors user id whenever a comment is created.</p>
+<div><div id="highlighter_723937" class="syntaxhighlighter nogutter  javascript"><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="javascript comments">// server/api/comment/comment.controller.js</code></div><div class="line number2 index1 alt1">&nbsp;</div><div class="line number3 index2 alt2"><code class="javascript plain">...</code></div><div class="line number4 index3 alt1">&nbsp;</div><div class="line number5 index4 alt2"><code class="javascript comments">// Get list of comments</code></div><div class="line number6 index5 alt1"><code class="javascript plain">exports.index = </code><code class="javascript keyword">function</code><code class="javascript plain">(req, res) {</code></div><div class="line number7 index6 alt2"><code class="javascript spaces">&nbsp;&nbsp;</code><code class="javascript plain">Comment.loadRecent(</code><code class="javascript keyword">function</code> <code class="javascript plain">(err, comments) {</code></div><div class="line number8 index7 alt1"><code class="javascript spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="javascript keyword">if</code><code class="javascript plain">(err) { </code><code class="javascript keyword">return</code> <code class="javascript plain">handleError(res, err); }</code></div><div class="line number9 index8 alt2"><code class="javascript spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="javascript keyword">return</code> <code class="javascript plain">res.json(200, comments);</code></div><div class="line number10 index9 alt1"><code class="javascript spaces">&nbsp;&nbsp;</code><code class="javascript plain">});</code></div><div class="line number11 index10 alt2"><code class="javascript plain">};</code></div><div class="line number12 index11 alt1">&nbsp;</div><div class="line number13 index12 alt2"><code class="javascript comments">// Creates a new comment in the DB.</code></div><div class="line number14 index13 alt1"><code class="javascript plain">exports.create = </code><code class="javascript keyword">function</code><code class="javascript plain">(req, res) {</code></div><div class="line number15 index14 alt2"><code class="javascript spaces">&nbsp;&nbsp;</code><code class="javascript comments">// don't include the date, if a user specified it</code></div><div class="line number16 index15 alt1"><code class="javascript spaces">&nbsp;&nbsp;</code><code class="javascript keyword">delete</code> <code class="javascript plain">req.body.date;</code></div><div class="line number17 index16 alt2">&nbsp;</div><div class="line number18 index17 alt1"><code class="javascript spaces">&nbsp;&nbsp;</code><code class="javascript keyword">var</code> <code class="javascript plain">comment = </code><code class="javascript keyword">new</code> <code class="javascript plain">Comment(_.merge({ author: req.user._id }, req.body));</code></div><div class="line number19 index18 alt2"><code class="javascript spaces">&nbsp;&nbsp;</code><code class="javascript plain">comment.save(</code><code class="javascript keyword">function</code><code class="javascript plain">(err, comment) {</code></div><div class="line number20 index19 alt1"><code class="javascript spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="javascript keyword">if</code><code class="javascript plain">(err) { </code><code class="javascript keyword">return</code> <code class="javascript plain">handleError(res, err); }</code></div><div class="line number21 index20 alt2"><code class="javascript spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="javascript keyword">return</code> <code class="javascript plain">res.json(201, comment);</code></div><div class="line number22 index21 alt1"><code class="javascript spaces">&nbsp;&nbsp;</code><code class="javascript plain">});</code></div><div class="line number23 index22 alt2"><code class="javascript plain">};</code></div><div class="line number24 index23 alt1">&nbsp;</div><div class="line number25 index24 alt2"><code class="javascript plain">...</code></div></div></td></tr></tbody></table></div></div>
+<p>We’ll also need to edit the <code>comment.socket.js</code>, which is responsible for pushing model events to our client. We just need to populate comments with the authors information before we emit it.</p>
+<div><div id="highlighter_243020" class="syntaxhighlighter nogutter  javascript"><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="javascript comments">// server/api/comment.socket.js</code></div><div class="line number2 index1 alt1">&nbsp;</div><div class="line number3 index2 alt2"><code class="javascript plain">...</code></div><div class="line number4 index3 alt1">&nbsp;</div><div class="line number5 index4 alt2"><code class="javascript keyword">function</code> <code class="javascript plain">onSave(socket, doc, cb) {</code></div><div class="line number6 index5 alt1"><code class="javascript spaces">&nbsp;&nbsp;</code><code class="javascript plain">Comment.populate(doc, {path:</code><code class="javascript string">'author'</code><code class="javascript plain">, select: </code><code class="javascript string">'name'</code><code class="javascript plain">}, </code><code class="javascript keyword">function</code><code class="javascript plain">(err, comment) {</code></div><div class="line number7 index6 alt2"><code class="javascript spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="javascript plain">socket.emit(</code><code class="javascript string">'comment:save'</code><code class="javascript plain">, comment);</code></div><div class="line number8 index7 alt1"><code class="javascript spaces">&nbsp;&nbsp;</code><code class="javascript plain">});</code></div><div class="line number9 index8 alt2"><code class="javascript plain">}</code></div><div class="line number10 index9 alt1">&nbsp;</div><div class="line number11 index10 alt2"><code class="javascript plain">...</code></div></div></td></tr></tbody></table></div></div>
+<h3 id="hooking-up-our-client-to-our-server">Hooking up our client to our server</h3>
+<p>Our api and server are done. We just need to have the two communicate. We’ll do that through our Angular controller.</p>
+<div><div id="highlighter_576838" class="syntaxhighlighter nogutter  javascript"><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="javascript comments">// client/app/main.controller.js</code></div><div class="line number2 index1 alt1">&nbsp;</div><div class="line number3 index2 alt2"><code class="javascript string">'use strict'</code><code class="javascript plain">;</code></div><div class="line number4 index3 alt1">&nbsp;</div><div class="line number5 index4 alt2"><code class="javascript plain">angular.module(</code><code class="javascript string">'angularTubeApp'</code><code class="javascript plain">)</code></div><div class="line number6 index5 alt1"><code class="javascript spaces">&nbsp;&nbsp;</code><code class="javascript plain">.controller(</code><code class="javascript string">'MainCtrl'</code><code class="javascript plain">, </code><code class="javascript keyword">function</code> <code class="javascript plain">($scope, $http, socket) {</code></div><div class="line number7 index6 alt2"><code class="javascript spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="javascript plain">$scope.newComment = </code><code class="javascript string">''</code><code class="javascript plain">;</code></div><div class="line number8 index7 alt1">&nbsp;</div><div class="line number9 index8 alt2"><code class="javascript spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="javascript comments">// Grab the initial set of available comments</code></div><div class="line number10 index9 alt1"><code class="javascript spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="javascript plain">$http.get(</code><code class="javascript string">'/api/comments'</code><code class="javascript plain">).success(</code><code class="javascript keyword">function</code><code class="javascript plain">(comments) {</code></div><div class="line number11 index10 alt2"><code class="javascript spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="javascript plain">$scope.comments = comments;</code></div><div class="line number12 index11 alt1">&nbsp;</div><div class="line number13 index12 alt2"><code class="javascript spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="javascript comments">// Update array with any new or deleted items pushed from the socket</code></div><div class="line number14 index13 alt1"><code class="javascript spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="javascript plain">socket.syncUpdates(</code><code class="javascript string">'comment'</code><code class="javascript plain">, $scope.comments, </code><code class="javascript keyword">function</code><code class="javascript plain">(event, comment, comments) {</code></div><div class="line number15 index14 alt2"><code class="javascript spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="javascript comments">// This callback is fired after the comments array is updated by the socket listeners</code></div><div class="line number16 index15 alt1">&nbsp;</div><div class="line number17 index16 alt2"><code class="javascript spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="javascript comments">// sort the array every time its modified</code></div><div class="line number18 index17 alt1"><code class="javascript spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="javascript plain">comments.sort(</code><code class="javascript keyword">function</code><code class="javascript plain">(a, b) {</code></div><div class="line number19 index18 alt2"><code class="javascript spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="javascript plain">a = </code><code class="javascript keyword">new</code> <code class="javascript plain">Date(a.date);</code></div><div class="line number20 index19 alt1"><code class="javascript spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="javascript plain">b = </code><code class="javascript keyword">new</code> <code class="javascript plain">Date(b.date);</code></div><div class="line number21 index20 alt2"><code class="javascript spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="javascript keyword">return</code> <code class="javascript plain">a&gt;b ? -1 : a&lt;b ? 1 : 0;</code></div><div class="line number22 index21 alt1"><code class="javascript spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="javascript plain">});</code></div><div class="line number23 index22 alt2"><code class="javascript spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="javascript plain">});</code></div><div class="line number24 index23 alt1"><code class="javascript spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="javascript plain">});</code></div><div class="line number25 index24 alt2">&nbsp;</div><div class="line number26 index25 alt1"><code class="javascript spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="javascript comments">// Clean up listeners when the controller is destroyed</code></div><div class="line number27 index26 alt2"><code class="javascript spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="javascript plain">$scope.$on(</code><code class="javascript string">'$destroy'</code><code class="javascript plain">, </code><code class="javascript keyword">function</code> <code class="javascript plain">() {</code></div><div class="line number28 index27 alt1"><code class="javascript spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="javascript plain">socket.unsyncUpdates(</code><code class="javascript string">'comment'</code><code class="javascript plain">);</code></div><div class="line number29 index28 alt2"><code class="javascript spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="javascript plain">});</code></div><div class="line number30 index29 alt1">&nbsp;</div><div class="line number31 index30 alt2"><code class="javascript spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="javascript comments">// Use our rest api to post a new comment</code></div><div class="line number32 index31 alt1"><code class="javascript spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="javascript plain">$scope.addComment = </code><code class="javascript keyword">function</code><code class="javascript plain">() {</code></div><div class="line number33 index32 alt2"><code class="javascript spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="javascript plain">$http.post(</code><code class="javascript string">'/api/comments'</code><code class="javascript plain">, { content: $scope.newComment });</code></div><div class="line number34 index33 alt1"><code class="javascript spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="javascript plain">$scope.newComment = </code><code class="javascript string">''</code><code class="javascript plain">;</code></div><div class="line number35 index34 alt2"><code class="javascript spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="javascript plain">};</code></div><div class="line number36 index35 alt1"><code class="javascript spaces">&nbsp;&nbsp;</code><code class="javascript plain">});</code></div></div></td></tr></tbody></table></div></div>
+<p>So with the syncUpdates method, we’re listening for saves or deletes on the comment model, and pushing any new comments into our array. This allows us to keep the comments updated across clients in real time.</p>
+<h3 id="what-next">We’re done!</h3>
+<p>And there you have it. Now if you still have your server running, you should be able to add comments, and have them sync in real time, and only authenticated users are allowed to post! Pretty cool, eh?</p>
+<p>So we’ve learned how we can build a simple full stack application. Check out the <a href="https://github.com/DaftMonk/generator-angular-fullstack/blob/master/readme.md">documentation for the generator</a> and consider reading about how to deploy to heroku or openshift with the generator, its really easy! Thanks for following along and have fun!</p>
+<div style="padding-bottom:20px; padding-top:10px;" class="hupso-share-buttons"><!-- Hupso Share Buttons - http://www.hupso.com/share/ --><a class="hupso_counters" href="http://www.hupso.com/share/"><img src="./Building an Angular + Node Comment App using Yeoman _ Tyler Henkel&#39;s Portfolio_files/share-small.png" style="border: 0px; padding-top: 2px; float: left; margin: 0px; outline: none; box-shadow: none; background-color: transparent;" alt="Share Button"></a><script type="text/javascript">var hupso_services_c=new Array("twitter","facebook_like","google","linkedin");var hupso_counters_lang = "en_US";var hupso_image_folder_url = "";var hupso_title_c="Building an Angular + Node Comment App using Yeoman";</script><script type="text/javascript" src="./Building an Angular + Node Comment App using Yeoman _ Tyler Henkel&#39;s Portfolio_files/counters.js"></script><div id="hupso_counters_0" class="hupso_c"><div id="counters_hupso_counters_0" style="display: inline-block;"><div style="float:left; margin-left:10px; width:90px;" class="hupso_twitter"><iframe id="twitter-widget-0" scrolling="no" frameborder="0" allowtransparency="true" class="twitter-share-button twitter-share-button-rendered twitter-tweet-button" title="Twitter Tweet Button" src="./Building an Angular + Node Comment App using Yeoman _ Tyler Henkel&#39;s Portfolio_files/tweet_button.fd774b599f565016d763dd860cb31c79.en.html" style="position: static; visibility: visible; width: 60px; height: 20px;" data-url="http://tylerhenkel.com/building-an-angular-node-comment-app-using-yeoman/"></iframe></div><div style="float:left; margin-left:10px; margin-right:15px;" class="hupso_facebook"><div class="fb-like fb_iframe_widget" data-href="http://tylerhenkel.com/building-an-angular-node-comment-app-using-yeoman/" data-send="false" data-layout="button_count" data-width="180" data-show-faces="false" fb-xfbml-state="rendered" fb-iframe-plugin-query="app_id=&amp;container_width=0&amp;href=http%3A%2F%2Ftylerhenkel.com%2Fbuilding-an-angular-node-comment-app-using-yeoman%2F&amp;layout=button_count&amp;locale=en_US&amp;sdk=joey&amp;send=false&amp;show_faces=false&amp;width=180"><span style="vertical-align: bottom; width: 79px; height: 20px;"><iframe name="f398c755a7a5c4" width="180px" height="1000px" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" title="fb:like Facebook Social Plugin" src="./Building an Angular + Node Comment App using Yeoman _ Tyler Henkel&#39;s Portfolio_files/like.html" style="border: none; visibility: visible; width: 79px; height: 20px;" class=""></iframe></span></div><div id="fb-root" class=" fb_reset"><div style="position: absolute; top: -10000px; height: 0px; width: 0px;"><div><iframe name="fb_xdm_frame_http" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" id="fb_xdm_frame_http" aria-hidden="true" title="Facebook Cross Domain Communication Frame" tabindex="-1" src="./Building an Angular + Node Comment App using Yeoman _ Tyler Henkel&#39;s Portfolio_files/xd_arbiter.html" style="border: none;"></iframe><iframe name="fb_xdm_frame_https" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" id="fb_xdm_frame_https" aria-hidden="true" title="Facebook Cross Domain Communication Frame" tabindex="-1" src="./Building an Angular + Node Comment App using Yeoman _ Tyler Henkel&#39;s Portfolio_files/xd_arbiter(1).html" style="border: none;"></iframe></div></div><div style="position: absolute; top: -10000px; height: 0px; width: 0px;"><div></div></div></div></div><div style="float:left; margin-left:10px; width:80px;" class="hupso_google"><div id="___plusone_0" style="text-indent: 0px; margin: 0px; padding: 0px; border-style: none; float: none; line-height: normal; font-size: 1px; vertical-align: baseline; display: inline-block; width: 90px; height: 20px; background: transparent;"><iframe frameborder="0" hspace="0" marginheight="0" marginwidth="0" scrolling="no" style="position: static; top: 0px; width: 90px; margin: 0px; border-style: none; left: 0px; visibility: visible; height: 20px;" tabindex="0" vspace="0" width="100%" id="I0_1460382261911" name="I0_1460382261911" src="./Building an Angular + Node Comment App using Yeoman _ Tyler Henkel&#39;s Portfolio_files/fastbutton.html" data-gapiattached="true" title="+1"></iframe></div></div><div style="float:left; margin-left:10px;" class="hupso_linkedin"></div><script type="text/javascript">!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script><script type="text/javascript">(function(d, s, id) { var js, fjs = d.getElementsByTagName(s)[0];  if (d.getElementById(id)) return; js = d.createElement(s); js.id = id; js.src = "//connect.facebook.net/en_US/sdk.js#version=v2.3&xfbml=1&status=0"; fjs.parentNode.insertBefore(js, fjs); }(document, 'script', 'facebook-jssdk')); </script><span class="IN-widget" style="line-height: 1; vertical-align: baseline; display: inline-block; text-align: center;"><span style="padding: 0px !important; margin: 0px !important; text-indent: 0px !important; display: inline-block !important; vertical-align: baseline !important; font-size: 1px !important;"><span id="li_ui_li_gen_1460382262156_0"><a id="li_ui_li_gen_1460382262156_0-link" href="javascript:void(0);"><span id="li_ui_li_gen_1460382262156_0-logo">in</span><span id="li_ui_li_gen_1460382262156_0-title"><span id="li_ui_li_gen_1460382262156_0-mark"></span><span id="li_ui_li_gen_1460382262156_0-title-text">Share</span></span></a></span></span><span style="padding: 0px !important; margin: 0px !important; text-indent: 0px !important; display: inline-block !important; vertical-align: baseline !important; font-size: 1px !important;"><span id="li_ui_li_gen_1460382262170_1-container" class="IN-right"><span id="li_ui_li_gen_1460382262170_1" class="IN-right"><span id="li_ui_li_gen_1460382262170_1-inner" class="IN-right"><span id="li_ui_li_gen_1460382262170_1-content" class="IN-right">7</span></span></span></span></span></span><script type="IN/Share+init" data-url="http://tylerhenkel.com/building-an-angular-node-comment-app-using-yeoman/" data-counter="right">window.___gcfg = {lang: 'en'}; (function() {var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true; po.src = 'https://apis.google.com/js/plusone.js'; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s); })();</script><script type="text/javascript" src="./Building an Angular + Node Comment App using Yeoman _ Tyler Henkel&#39;s Portfolio_files/in.js"></script></div></div><!-- Hupso Share Buttons --></div>
+
+
+		</div><!-- .blog-post-content -->
+
+
+
+	
+
+
+</article><!-- .blog-post -->
+						
+						
+<div id="disqus_thread"><iframe id="dsq-app2" name="dsq-app2" allowtransparency="true" frameborder="0" scrolling="no" tabindex="0" title="Disqus" width="100%" src="./Building an Angular + Node Comment App using Yeoman _ Tyler Henkel&#39;s Portfolio_files/saved_resource.html" style="width: 1px !important; min-width: 100% !important; border: none !important; overflow: hidden !important; height: 3849px !important;" horizontalscrolling="no" verticalscrolling="no"></iframe></div>
+
+<script type="text/javascript">
+/* <![CDATA[ */
+    var disqus_url = 'http://tylerhenkel.com/building-an-angular-node-comment-app-using-yeoman/';
+    var disqus_identifier = '295 http://tylerhenkel.com/?p=295';
+    var disqus_container_id = 'disqus_thread';
+    var disqus_domain = 'disqus.com';
+    var disqus_shortname = 'tylerhenkel';
+    var disqus_title = "Building an Angular + Node Comment App using Yeoman";
+        var disqus_config = function () {
+        var config = this; // Access to the config object
+        config.language = '';
+
+        /*
+           All currently supported events:
+            * preData — fires just before we request for initial data
+            * preInit - fires after we get initial data but before we load any dependencies
+            * onInit  - fires when all dependencies are resolved but before dtpl template is rendered
+            * afterRender - fires when template is rendered but before we show it
+            * onReady - everything is done
+         */
+
+        config.callbacks.preData.push(function() {
+            // clear out the container (its filled for SEO/legacy purposes)
+            document.getElementById(disqus_container_id).innerHTML = '';
+        });
+                config.callbacks.onReady.push(function() {
+            // sync comments in the background so we don't block the page
+            var script = document.createElement('script');
+            script.async = true;
+            script.src = '?cf_action=sync_comments&post_id=295';
+
+            var firstScript = document.getElementsByTagName( "script" )[0];
+            firstScript.parentNode.insertBefore(script, firstScript);
+        });
+                    };
+/* ]]> */
+</script>
+
+<script type="text/javascript">
+/* <![CDATA[ */
+    var DsqLocal = {
+        'trackbacks': [
+        ],
+        'trackback_url': "http:\/\/tylerhenkel.com\/building-an-angular-node-comment-app-using-yeoman\/trackback\/"    };
+/* ]]> */
+</script>
+
+<script type="text/javascript">
+/* <![CDATA[ */
+(function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.' + 'disqus.com' + '/embed.js?pname=wordpress&pver=2.74';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+/* ]]> */
+</script>
+
+				</div><!-- .blog-posts -->
+
+			</div><!-- .light-section -->
+
+		</div><!--#content -->
+
+	</div><!-- .wrap -->
+
+
+	</div><!-- #main -->
+
+		<div id="footer">
+
+			<div class="wrap">
+
+				<div id="footer-copyright">
+					Copyright © Tyler Henkel 2013				</div><!-- #footer-copyright -->
+
+				<div id="footer-social">
+							<ul class="social clearfix">
+			<li class="social-twitter"><a href="https://twitter.com/tyhenkel"><span class="icon-twitter-sign"></span></a></li><li class="social-github"><a href="https://github.com/DaftMonk/"><span class="icon-github-sign"></span></a></li>		</ul>
+						</div><!-- #footer-social -->
+
+			</div>
+
+		</div><!-- #footer -->
+
+	</div><iframe src="./Building an Angular + Node Comment App using Yeoman _ Tyler Henkel&#39;s Portfolio_files/service.html" style="width: 0px; height: 0px; border: 0px;"></iframe><!-- #container -->
+
+	
+	<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-46106782-1', 'tylerhenkel.com');
+  ga('send', 'pageview');
+
+</script>
+		
+<!-- START: Syntax Highlighter ComPress -->
+<script type="text/javascript">
+    SyntaxHighlighter.autoloader(
+        'applescript			http://tylerhenkel.com/wp-content/plugins/syntax-highlighter-compress/scripts/shBrushAppleScript.js',
+        'actionscript3 as3		http://tylerhenkel.com/wp-content/plugins/syntax-highlighter-compress/scripts/shBrushAS3.js',
+        'bash shell				http://tylerhenkel.com/wp-content/plugins/syntax-highlighter-compress/scripts/shBrushBash.js',
+        'coldfusion cf			http://tylerhenkel.com/wp-content/plugins/syntax-highlighter-compress/scripts/shBrushColdFusion.js',
+        'cpp c					http://tylerhenkel.com/wp-content/plugins/syntax-highlighter-compress/scripts/shBrushCpp.js',
+        'c# c-sharp csharp		http://tylerhenkel.com/wp-content/plugins/syntax-highlighter-compress/scripts/shBrushCSharp.js',
+        'css					http://tylerhenkel.com/wp-content/plugins/syntax-highlighter-compress/scripts/shBrushCss.js',
+        'delphi pascal pas		http://tylerhenkel.com/wp-content/plugins/syntax-highlighter-compress/scripts/shBrushDelphi.js',
+        'diff patch			    http://tylerhenkel.com/wp-content/plugins/syntax-highlighter-compress/scripts/shBrushDiff.js',
+        'erl erlang				http://tylerhenkel.com/wp-content/plugins/syntax-highlighter-compress/scripts/shBrushErlang.js',
+        'groovy					http://tylerhenkel.com/wp-content/plugins/syntax-highlighter-compress/scripts/shBrushGroovy.js',
+        'java					http://tylerhenkel.com/wp-content/plugins/syntax-highlighter-compress/scripts/shBrushJava.js',
+        'jfx javafx				http://tylerhenkel.com/wp-content/plugins/syntax-highlighter-compress/scripts/shBrushJavaFX.js',
+        'js jscript javascript	http://tylerhenkel.com/wp-content/plugins/syntax-highlighter-compress/scripts/shBrushJScript.js',
+        'perl pl				http://tylerhenkel.com/wp-content/plugins/syntax-highlighter-compress/scripts/shBrushPerl.js',
+        'php					http://tylerhenkel.com/wp-content/plugins/syntax-highlighter-compress/scripts/shBrushPhp.js',
+        'text plain				http://tylerhenkel.com/wp-content/plugins/syntax-highlighter-compress/scripts/shBrushPlain.js',
+        'powershell ps          http://tylerhenkel.com/wp-content/plugins/syntax-highlighter-compress/scripts/shBrushPowerShell.js',
+        'py python				http://tylerhenkel.com/wp-content/plugins/syntax-highlighter-compress/scripts/shBrushPython.js',
+        'ruby rails ror rb		http://tylerhenkel.com/wp-content/plugins/syntax-highlighter-compress/scripts/shBrushRuby.js',
+        'sass scss              http://tylerhenkel.com/wp-content/plugins/syntax-highlighter-compress/scripts/shBrushSass.js',
+        'scala					http://tylerhenkel.com/wp-content/plugins/syntax-highlighter-compress/scripts/shBrushScala.js',
+        'sql					http://tylerhenkel.com/wp-content/plugins/syntax-highlighter-compress/scripts/shBrushSql.js',
+        'vb vbnet				http://tylerhenkel.com/wp-content/plugins/syntax-highlighter-compress/scripts/shBrushVb.js',
+        'xml xhtml xslt html	http://tylerhenkel.com/wp-content/plugins/syntax-highlighter-compress/scripts/shBrushXml.js'
+    );
+                SyntaxHighlighter.defaults['gutter'] = false;     SyntaxHighlighter.defaults['toolbar'] = false;     SyntaxHighlighter.defaults['tab-size'] = 4;
+    SyntaxHighlighter.all();
+</script>
+<!-- END: Syntax Highlighter ComPress -->
+
+	<script type="text/javascript" src="./Building an Angular + Node Comment App using Yeoman _ Tyler Henkel&#39;s Portfolio_files/retina.js"></script>
+
+
+<iframe name="oauth2relay807713741" id="oauth2relay807713741" src="./Building an Angular + Node Comment App using Yeoman _ Tyler Henkel&#39;s Portfolio_files/postmessageRelay.html" tabindex="-1" style="width: 1px; height: 1px; position: absolute; top: -100px;"></iframe><iframe id="rufous-sandbox" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="true" style="position: absolute; visibility: hidden; display: none; width: 0px; height: 0px; padding: 0px; border: none;"></iframe></body></html>

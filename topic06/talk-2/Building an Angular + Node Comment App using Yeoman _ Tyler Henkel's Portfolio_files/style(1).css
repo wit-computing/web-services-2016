@@ -1,0 +1,164 @@
+/*
+ Theme Name:     Identify Child
+ Theme URI:      http://themebros.net
+ Description:    Identify child Theme
+ Author:         Tyler Henkel
+ Author URI:     http://tylerhenkel.com
+ Template:       identify-v1.0.3
+ Version:        1.0.0
+*/
+
+/* =Imports styles from the parent theme
+-------------------------------------------------------------- */
+@import url('../identify-v1.0.3/style.css');
+
+
+/* =Theme customization starts here
+-------------------------------------------------------------- */
+
+code {
+  padding: 2px 4px;
+  font-size: 90%;
+  color: #c7254e;
+  white-space: nowrap;
+  background-color: #f9f2f4;
+  border-radius: 4px;
+}
+
+.blog-post {
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+}
+
+.widget li {
+  margin-bottom: 20px;
+}
+
+.nav-menu li a {
+    font-weight: 800;
+    letter-spacing: 0.025em;
+    background: #efeeee;
+    color: #696969;
+    text-decoration: none;
+    border-radius: 6px;
+    padding: 0.5em 1em 0.5em 1em;
+    -moz-transition: background-color .25s ease-in-out;
+    -webkit-transition: background-color .25s ease-in-out;
+    -o-transition: background-color .25s ease-in-out;
+    -ms-transition: background-color .25s ease-in-out;
+    transition: background-color .25s ease-in-out;
+}
+
+.nav-menu li a:hover {
+    background: rgb(248, 152, 28);
+    color: #fff !important;
+}
+
+.nav-menu li.current-menu-item > a {
+    background: #666;
+    color: #fff !important;
+}
+
+.light-section {
+    padding: 0px;
+}
+
+.pagination, .blog-post, #disqus_thread {
+    padding: 40px
+}
+
+.blog-post-excerpt {
+    font-size: 16px !important;
+    line-height: 1.7;
+}
+
+.blog-post-content {
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+.blog-post-title {
+   font-weight: normal;
+   line-height: 1.2;
+}
+
+.widget-title {
+   padding: 15px 0;
+   color: #AEAEAE;
+   font-size: 18px;
+   letter-spacing: 0;
+   line-height: 1.2;
+   margin-bottom: 18px;
+   border-top-left-radius: 5px;
+   border-top-right-radius: 5px;
+   border-bottom: 1px solid #eee;
+}
+
+.widget {
+   margin-bottom: 40px;
+   border-radius: 4px;
+}
+
+.widget li {
+   padding: 0px 0px;
+   margin-bottom: 10px;
+   padding-bottom: 20px;
+   color: #959595;
+   border-bottom: 1px solid #eee;
+}
+
+.widget li:last-child {
+   border-bottom: none;
+}
+
+.widget li a {
+   border-bottom: none;
+}
+
+#header {
+   border-bottom: none;
+   -webkit-box-shadow: 4px 4px 0 0 #e5e5e5;
+   box-shadow: 4px 4px 0 0 #e5e5e5;
+}
+
+
+.read-more {
+display: inline-block;
+text-decoration: none;
+cursor: pointer;
+border: 0;
+border-radius: 5px;
+background: #6F9CDB;
+color: #fff !important;
+font-weight: 700;
+outline: 0;
+float: left;
+-moz-transition: background-color .25s ease-in-out;
+-webkit-transition: background-color .25s ease-in-out;
+-o-transition: background-color .25s ease-in-out;
+-ms-transition: background-color .25s ease-in-out;
+transition: background-color .25s ease-in-out;
+padding: 5px 15px;
+margin-top: 20px;
+}
+
+.read-more:hover, .read_more:active {
+background: #507EC0;
+text-decoration: none;
+}
+
+.blog-post-excerpt {
+margin-bottom: 90px;
+}
+
+a {
+-moz-transition: background-color .25s ease-in-out;
+-webkit-transition: background-color .25s ease-in-out;
+-o-transition: background-color .25s ease-in-out;
+-ms-transition: background-color .25s ease-in-out;
+transition: background-color .25s ease-in-out;
+}
+
+#tagline {
+  max-width: 450px;
+}
