@@ -106,6 +106,15 @@ h3
   </div>
   <div  class="ui tab segment lab" data-tab="01">
     <h1>Yeoman Lab</h1>
+<p>In this lab we will develop the "Hacker News" posts API. The routes supported by the web API are:</p>
+<ul>
+<li>GET ‘api/posts/’ - get all posts</li>
+<li>GET ‘api/posts//:id’ - get a specific post. [A post’s id is simply its index position in the posts array - as stored in the service.]</li>
+<li>POST ‘api/posts’ - add a new post</li>
+<li>POST ‘api//:id/upvotes’ - change a specific post’s upvote count.</li>
+<li>POST ‘api/posts/:id/comments’ - add a comment to a specific post.</li>
+<li>POST ‘api/posts/:post_id/comments/:comment_id/upvotes’ - change a comment’s upvote count. [A comment’s id is simply its indev position in the comments array for the related post. Therefore, comment ids are not unique, hence, the post id must also be included in the URL path.]</li>
+</ul>
 <h3>Prerequesites</h3>
 <p>Make sure you have MongoDB installed on your local machine</p>
 <h3>Installing Yeoman</h3>
